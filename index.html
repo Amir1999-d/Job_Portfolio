@@ -1,406 +1,784 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amirhassan Darvishzade | Master Portfolio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
-        body { font-family: 'Plus Jakarta Sans', sans-serif; }
-        .glass { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(14px); }
-        .ai-accent { background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%); }
-        .hero-bg { background: radial-gradient(circle at top right, #f8fafc, #ffffff); }
-        .project-card { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-        .project-card:hover { transform: translateY(-10px); box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.12); }
-        .chart-bg { background: #fdfdfd; border: 1px solid #f1f5f9; border-radius: 1.5rem; }
-        .timeline-line { position: absolute; left: 20px; top: 0; bottom: 0; width: 2px; background: #e2e8f0; }
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amirhassan Darvishzade — Transport Modelling Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0B1F3A;
+  --navy-mid: #0D2E50;
+  --teal: #00A896;
+  --teal-dk: #007A6E;
+  --amber: #F4A300;
+  --red: #E63946;
+  --cream: #F4F1EC;
+  --white: #FFFFFF;
+  --gray-lt: #E8EDF2;
+  --gray-mid: #7A8A9A;
+  --dark-txt: #1F2937;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--cream);
+  color: var(--dark-txt);
+  overflow-x: hidden;
+}
+
+/* ── HEADER ─────────────────────────────────────────────────────── */
+header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(11,31,58,0.97);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0,168,150,0.25);
+  padding: 0 5vw;
+  height: 64px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem; font-weight: 700;
+  color: var(--white);
+  letter-spacing: 0.02em;
+}
+.logo span { color: var(--teal); }
+nav { display: flex; gap: 2rem; }
+nav a {
+  color: rgba(255,255,255,0.7);
+  text-decoration: none;
+  font-size: 0.82rem; font-weight: 500; letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+nav a:hover { color: var(--teal); }
+
+/* ── HERO ────────────────────────────────────────────────────────── */
+.hero {
+  min-height: 100vh;
+  background: var(--navy);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding: 80px 5vw 0;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; top: -20%; right: -10%;
+  width: 70vw; height: 70vw;
+  background: radial-gradient(circle, rgba(0,168,150,0.08) 0%, transparent 65%);
+  pointer-events: none;
+}
+.grid-bg {
+  position: absolute; inset: 0;
+  background-image: linear-gradient(rgba(0,168,150,0.04) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(0,168,150,0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+  pointer-events: none;
+}
+.hero-left { position: relative; z-index: 2; padding-right: 3rem; }
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  background: rgba(0,168,150,0.12);
+  border: 1px solid rgba(0,168,150,0.35);
+  border-radius: 100px;
+  padding: 0.35rem 1rem;
+  font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 1.8rem;
+  animation: fadeUp 0.6s ease both;
+}
+.eyebrow::before { content: '●'; font-size: 0.5rem; }
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.6rem, 4.5vw, 4rem);
+  font-weight: 900; line-height: 1.1;
+  color: var(--white);
+  margin-bottom: 1.4rem;
+  animation: fadeUp 0.6s 0.1s ease both;
+}
+h1 .accent { color: var(--teal); }
+.hero-desc {
+  font-size: 1.05rem; line-height: 1.75;
+  color: rgba(255,255,255,0.65);
+  margin-bottom: 2.5rem;
+  max-width: 46ch;
+  animation: fadeUp 0.6s 0.2s ease both;
+}
+.hero-cta {
+  display: flex; gap: 1rem; flex-wrap: wrap;
+  animation: fadeUp 0.6s 0.3s ease both;
+}
+.btn {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.85rem 2rem;
+  border-radius: 6px;
+  font-weight: 600; font-size: 0.88rem; letter-spacing: 0.04em;
+  text-decoration: none; cursor: pointer; border: none;
+  transition: all 0.22s ease;
+}
+.btn-primary {
+  background: var(--teal);
+  color: var(--white);
+}
+.btn-primary:hover { background: var(--teal-dk); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,168,150,0.35); }
+.btn-outline {
+  background: transparent;
+  color: var(--white);
+  border: 1px solid rgba(255,255,255,0.3);
+}
+.btn-outline:hover { border-color: var(--teal); color: var(--teal); transform: translateY(-2px); }
+
+/* Hero right - stats panel */
+.hero-right {
+  position: relative; z-index: 2;
+  animation: fadeUp 0.6s 0.4s ease both;
+}
+.stats-panel {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(0,168,150,0.2);
+  border-radius: 16px;
+  padding: 2rem;
+  backdrop-filter: blur(8px);
+}
+.stats-title {
+  font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--gray-mid);
+  margin-bottom: 1.5rem;
+}
+.stats-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.stat-card {
+  background: var(--navy-mid);
+  border: 1px solid rgba(0,168,150,0.15);
+  border-radius: 10px;
+  padding: 1.2rem 1rem;
+  position: relative; overflow: hidden;
+  transition: transform 0.2s, border-color 0.2s;
+}
+.stat-card:hover { transform: translateY(-3px); border-color: var(--teal); }
+.stat-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: var(--teal);
+}
+.stat-val {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem; font-weight: 700;
+  color: var(--teal);
+  line-height: 1;
+  margin-bottom: 0.4rem;
+}
+.stat-val.amber { color: var(--amber); }
+.stat-val.red { color: var(--red); }
+.stat-val.white { color: var(--white); }
+.stat-label { font-size: 0.8rem; color: rgba(255,255,255,0.5); line-height: 1.3; }
+
+.skill-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.pill {
+  background: rgba(0,168,150,0.1);
+  border: 1px solid rgba(0,168,150,0.25);
+  border-radius: 100px;
+  padding: 0.3rem 0.9rem;
+  font-size: 0.78rem; font-weight: 500;
+  color: var(--teal);
+  font-family: 'DM Mono', monospace;
+}
+
+/* ── CITIEU MATCH BANNER ─────────────────────────────────────────── */
+.match-banner {
+  background: linear-gradient(135deg, var(--navy) 0%, #0a2540 100%);
+  border-top: 2px solid var(--teal);
+  border-bottom: 2px solid rgba(0,168,150,0.2);
+  padding: 3rem 5vw;
+}
+.match-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 2fr;
+  gap: 3rem; align-items: center;
+}
+.match-label {
+  font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--teal); font-weight: 600; margin-bottom: 0.8rem;
+}
+.match-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem; font-weight: 700;
+  color: var(--white); line-height: 1.2;
+}
+.match-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 0.9rem;
+}
+.match-item {
+  display: flex; align-items: flex-start; gap: 0.8rem;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(0,168,150,0.15);
+  border-radius: 10px;
+  padding: 0.9rem 1rem;
+}
+.match-icon { font-size: 1.3rem; flex-shrink: 0; }
+.match-item-title { font-size: 0.85rem; font-weight: 600; color: var(--white); margin-bottom: 0.2rem; }
+.match-item-sub { font-size: 0.78rem; color: rgba(255,255,255,0.5); line-height: 1.4; }
+
+/* ── SECTION WRAPPER ─────────────────────────────────────────────── */
+section {
+  padding: 6rem 5vw;
+  max-width: 1200px; margin: 0 auto;
+}
+.section-tag {
+  display: inline-block;
+  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--teal);
+  background: rgba(0,168,150,0.08);
+  border: 1px solid rgba(0,168,150,0.2);
+  border-radius: 100px; padding: 0.28rem 0.9rem;
+  margin-bottom: 0.8rem;
+}
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 700;
+  color: var(--navy); margin-bottom: 0.6rem;
+}
+.section-sub { font-size: 1rem; color: var(--gray-mid); margin-bottom: 3rem; max-width: 60ch; }
+
+/* ── PROJECTS ────────────────────────────────────────────────────── */
+.projects-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 1.8rem;
+}
+.project-card {
+  background: var(--white);
+  border: 1px solid var(--gray-lt);
+  border-radius: 14px;
+  overflow: hidden;
+  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+  cursor: pointer;
+}
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(11,31,58,0.12);
+  border-color: var(--teal);
+}
+.card-header {
+  height: 5px;
+}
+.card-body { padding: 1.6rem; }
+.card-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; }
+.card-tag {
+  font-size: 0.7rem; font-weight: 600; letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: rgba(0,168,150,0.08);
+  color: var(--teal-dk);
+  border-radius: 4px; padding: 0.2rem 0.6rem;
+}
+.card-tag.citieu-tag {
+  background: rgba(11,31,58,0.06);
+  color: var(--navy);
+}
+.card-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem; font-weight: 700;
+  color: var(--navy); margin-bottom: 0.7rem; line-height: 1.3;
+}
+.card-desc { font-size: 0.9rem; color: var(--gray-mid); line-height: 1.6; margin-bottom: 1.2rem; }
+.card-metrics {
+  display: flex; gap: 0.8rem; flex-wrap: wrap;
+  border-top: 1px solid var(--gray-lt);
+  padding-top: 1rem;
+}
+.metric {
+  flex: 1; min-width: 80px;
+  text-align: center;
+  background: #F8FFFE;
+  border: 1px solid rgba(0,168,150,0.15);
+  border-radius: 8px; padding: 0.6rem 0.4rem;
+}
+.metric-val {
+  font-family: 'DM Mono', monospace;
+  font-size: 1.05rem; font-weight: 500;
+  color: var(--teal); display: block; margin-bottom: 0.2rem;
+}
+.metric-val.amber { color: var(--amber); }
+.metric-val.red { color: var(--red); }
+.metric-val.navy { color: var(--navy); }
+.metric-lbl { font-size: 0.7rem; color: var(--gray-mid); line-height: 1.2; }
+
+/* ── THESIS HIGHLIGHT ────────────────────────────────────────────── */
+.thesis-card {
+  background: var(--navy);
+  border-radius: 18px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+  position: relative;
+}
+.thesis-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background-image: linear-gradient(rgba(0,168,150,0.04) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(0,168,150,0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+}
+.thesis-inner {
+  position: relative; z-index: 1;
+  display: grid; grid-template-columns: 3fr 2fr;
+  gap: 2rem;
+  padding: 2.5rem;
+}
+.thesis-tag {
+  display: inline-block;
+  background: rgba(0,168,150,0.15);
+  border: 1px solid rgba(0,168,150,0.3);
+  color: var(--teal); font-size: 0.72rem; letter-spacing: 0.1em;
+  text-transform: uppercase; font-weight: 600;
+  border-radius: 100px; padding: 0.3rem 0.9rem;
+  margin-bottom: 1rem;
+}
+.thesis-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.7rem; font-weight: 700; color: var(--white); line-height: 1.25;
+  margin-bottom: 0.9rem;
+}
+.thesis-desc { font-size: 0.92rem; color: rgba(255,255,255,0.6); line-height: 1.7; margin-bottom: 1.5rem; }
+.thesis-flow {
+  display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.4rem;
+}
+.flow-node {
+  background: rgba(0,168,150,0.1);
+  border: 1px solid rgba(0,168,150,0.3);
+  border-radius: 6px; padding: 0.3rem 0.7rem;
+  font-size: 0.78rem; color: var(--teal); font-family: 'DM Mono', monospace;
+}
+.flow-arrow { color: rgba(255,255,255,0.3); font-size: 0.9rem; }
+.thesis-kpis {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 0.8rem;
+}
+.thesis-kpi {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(0,168,150,0.15);
+  border-radius: 10px; padding: 1rem;
+  text-align: center;
+}
+.thesis-kpi-val {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem; font-weight: 700;
+  display: block; margin-bottom: 0.3rem;
+}
+.thesis-kpi-lbl { font-size: 0.75rem; color: rgba(255,255,255,0.45); line-height: 1.3; }
+
+/* ── SKILLS ──────────────────────────────────────────────────────── */
+.skills-section { background: var(--navy); padding: 6rem 5vw; }
+.skills-inner { max-width: 1200px; margin: 0 auto; }
+.skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1.2rem; }
+.skill-group {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(0,168,150,0.15);
+  border-radius: 12px; padding: 1.4rem;
+  transition: border-color 0.2s;
+}
+.skill-group:hover { border-color: var(--teal); }
+.skill-group-icon { font-size: 1.5rem; margin-bottom: 0.7rem; }
+.skill-group-title { font-size: 0.82rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--teal); margin-bottom: 0.8rem; }
+.skill-item { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; }
+.skill-name { font-size: 0.88rem; color: rgba(255,255,255,0.8); }
+.skill-bar { width: 60px; height: 4px; background: rgba(255,255,255,0.1); border-radius: 2px; overflow: hidden; }
+.skill-fill { height: 100%; background: var(--teal); border-radius: 2px; }
+
+/* ── EXPERIENCE ──────────────────────────────────────────────────── */
+.timeline { position: relative; padding-left: 2rem; }
+.timeline::before {
+  content: ''; position: absolute; left: 0.45rem; top: 0.5rem; bottom: 0;
+  width: 2px; background: linear-gradient(to bottom, var(--teal), transparent);
+}
+.tl-item { position: relative; margin-bottom: 2.5rem; }
+.tl-dot {
+  position: absolute; left: -2rem;
+  width: 14px; height: 14px;
+  background: var(--teal); border-radius: 50%;
+  border: 3px solid var(--cream);
+  top: 0.3rem;
+}
+.tl-date { font-size: 0.78rem; font-weight: 600; color: var(--teal); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 0.3rem; }
+.tl-role { font-size: 1.05rem; font-weight: 600; color: var(--navy); margin-bottom: 0.15rem; }
+.tl-org { font-size: 0.88rem; color: var(--gray-mid); margin-bottom: 0.6rem; }
+.tl-body { font-size: 0.9rem; color: var(--dark-txt); line-height: 1.65; }
+
+/* ── CONTACT ─────────────────────────────────────────────────────── */
+.contact-section {
+  background: var(--navy);
+  padding: 6rem 5vw;
+  text-align: center;
+}
+.contact-inner { max-width: 700px; margin: 0 auto; }
+.contact-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem; font-weight: 700; color: var(--white);
+  margin-bottom: 1rem;
+}
+.contact-sub { color: rgba(255,255,255,0.55); margin-bottom: 2.5rem; font-size: 1rem; line-height: 1.7; }
+.contact-links { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+.contact-chip {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 100px; padding: 0.7rem 1.4rem;
+  color: rgba(255,255,255,0.8); font-size: 0.88rem;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.contact-chip:hover { background: var(--teal); border-color: var(--teal); color: var(--white); }
+
+footer {
+  background: #070F1C; color: rgba(255,255,255,0.3);
+  text-align: center; padding: 1.5rem;
+  font-size: 0.8rem;
+}
+
+/* ── ANIMATIONS ──────────────────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.reveal {
+  opacity: 0; transform: translateY(30px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+</style>
 </head>
-<body class="bg-slate-50 text-slate-900 scroll-smooth">
+<body>
 
-    <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 glass border-b border-slate-200/50 px-6">
-        <div class="max-w-7xl mx-auto h-20 flex items-center justify-between">
-            <span class="font-extrabold tracking-tighter text-blue-600 text-2xl uppercase italic">AD.</span>
-            <div class="hidden md:flex space-x-10 text-[10px] font-black uppercase tracking-widest text-slate-400">
-                <a href="#projects" class="hover:text-blue-600 transition-colors">Portfolio</a>
-                <a href="#skills" class="hover:text-blue-600 transition-colors">Expertise</a>
-                <a href="#background" class="hover:text-blue-600 transition-colors">Background</a>
-            </div>
-            <button onclick="openModal('matcher')" class="ai-accent text-white px-6 py-2.5 rounded-full shadow-xl flex items-center gap-2 hover:scale-105 transition-all text-[11px] font-bold">
-                <i data-lucide="sparkles" class="w-4 h-4 text-amber-300"></i> AI Profile Matcher
-            </button>
+<!-- HEADER -->
+<header>
+  <div class="logo">AD<span>.</span></div>
+  <nav>
+    <a href="#projects">Projects</a>
+    <a href="#thesis">Thesis</a>
+    <a href="#skills">Skills</a>
+    <a href="#background">Background</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="grid-bg"></div>
+  <div class="hero-left">
+    <div class="eyebrow">Transport Modelling & Mobility Analytics</div>
+    <h1>Data-Driven<br><span class="accent">Transport</span><br>Modelling.</h1>
+    <p class="hero-desc">Amirhassan Darvishzade — MSc Mobility Engineering, Politecnico di Milano. Specialist in OD demand analysis, public transport network optimisation, big-data mobility flows, and equity-driven service planning.</p>
+    <div class="hero-cta">
+      <a href="#projects" class="btn btn-primary">View Projects</a>
+      <a href="mailto:amirhassan.darvishzade@mail.polimi.it" class="btn btn-outline">Get in Touch</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="stats-panel">
+      <div class="stats-title">Key Metrics</div>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-val">3,000</div>
+          <div class="stat-label">OD Zones Processed<br>National mobile-device data</div>
         </div>
-    </nav>
-
-    <!-- Hero -->
-    <header class="pt-44 pb-32 hero-bg px-6 border-b border-slate-100">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-            <div class="lg:col-span-7">
-                <div class="inline-flex items-center gap-2 bg-blue-50 text-blue-600 px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest mb-8">
-                    Supply Chain Engineer • Mobility Analyst • Industrial Specialist
-                </div>
-                <h1 class="text-7xl md:text-8xl font-black text-slate-900 mb-8 tracking-tighter leading-[0.85]">
-                    Data-Driven <br><span class="text-blue-600">Mobility.</span>
-                </h1>
-                <p class="text-xl text-slate-500 mb-12 leading-relaxed max-w-xl font-medium">
-                    Amirhassan Darvishzade — Effective mobility must transcend pure engineering to meet the social, psychological, technical, and cultural needs of a community.
-                </p>
-                <div class="flex flex-wrap gap-8 text-sm font-bold text-slate-400">
-                    <span class="flex items-center gap-2"><i data-lucide="map-pin" class="w-4 h-4 text-blue-600"></i> Milan, Italy</span>
-                    <span class="flex items-center gap-2"><i data-lucide="mail" class="w-4 h-4 text-blue-600"></i> amirhassan.darvishzade@mail.polimi.it</span>
-                </div>
-            </div>
-            <!-- Performance Dashboard -->
-            <div class="lg:col-span-5 relative hidden lg:block">
-                <div class="bg-slate-900 text-white p-10 rounded-[48px] shadow-2xl relative overflow-hidden">
-                    <div class="relative z-10 space-y-12">
-                        <div>
-                            <span class="text-blue-400 text-[10px] font-black uppercase tracking-widest block mb-2">Transport Optimization</span>
-                            <div class="text-4xl font-black italic tracking-tight">+28.3% Load Factor</div>
-                        </div>
-                        <div>
-                            <span class="text-emerald-400 text-[10px] font-black uppercase tracking-widest block mb-2">Supply Chain ROI</span>
-                            <div class="text-4xl font-black italic tracking-tight">185% IRR Proj.</div>
-                        </div>
-                        <div>
-                            <span class="text-indigo-400 text-[10px] font-black uppercase tracking-widest block mb-2">Feasibility Study</span>
-                            <div class="text-4xl font-black italic tracking-tight">€40M+ NPV</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="stat-card">
+          <div class="stat-val amber">r=0.90</div>
+          <div class="stat-label">Model Validation<br>Pearson correlation vs official stats</div>
         </div>
-    </header>
-
-    <!-- Projects Gallery -->
-    <section id="projects" class="py-32 px-6">
-        <div class="max-w-7xl mx-auto">
-            <div class="flex justify-between items-end mb-20">
-                <div>
-                    <h2 class="text-5xl font-black tracking-tighter uppercase text-slate-900">Unified Portfolio</h2>
-                    <p class="text-slate-400 mt-2 font-bold uppercase text-xs tracking-widest">Bridging Supply Chain, Transport, and Industry</p>
-                </div>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-                
-                <!-- Supply Chain & Startup Ops (From Persian Report) -->
-                <div class="project-card bg-white rounded-[40px] border-2 border-emerald-100 overflow-hidden flex flex-col group shadow-xl shadow-emerald-50">
-                    <div class="p-8 flex-grow">
-                        <span class="bg-emerald-50 text-emerald-700 px-3 py-1 rounded text-[9px] font-black uppercase mb-6 inline-block tracking-widest">Supply Chain • Startup Operations</span>
-                        <h3 class="text-2xl font-bold mb-4 tracking-tight group-hover:text-emerald-600 transition-colors leading-tight">Healthcare App Operations Design</h3>
-                        
-                        <!-- Visual: Scaling Funnel -->
-                        <div class="chart-bg p-6 mb-8 overflow-hidden relative">
-                            <div class="flex items-end gap-1 h-24">
-                                <div class="bg-emerald-100 w-1/4 h-[30%] rounded-t-lg"></div>
-                                <div class="bg-emerald-300 w-1/4 h-[50%] rounded-t-lg"></div>
-                                <div class="bg-emerald-500 w-1/4 h-[80%] rounded-t-lg shadow-lg"></div>
-                                <div class="bg-emerald-600 w-1/4 h-[100%] rounded-t-lg shadow-xl"></div>
-                            </div>
-                            <div class="absolute top-4 right-4 text-[10px] font-black text-emerald-600 bg-white px-2 py-1 rounded shadow-sm italic">IRR 185%</div>
-                            <div class="absolute top-12 right-4 text-[10px] font-black text-slate-400 italic">50k USERS</div>
-                        </div>
-
-                        <p class="text-slate-500 text-sm leading-relaxed mb-6 font-medium italic">Defined multi-tier pricing and operational SOPs for scaling a medical digital service. Created break-even models with a 2.02-year payback period.</p>
-                    </div>
-                    <button onclick="openDeepDive('Healthcare App')" class="w-full py-5 bg-emerald-50 border-t border-emerald-100 font-black text-[10px] uppercase tracking-widest text-emerald-600 hover:bg-white transition-all">Project Data Deep Dive ✨</button>
-                </div>
-
-                <!-- Belluno Bus (From Transport PDF) -->
-                <div class="project-card bg-white rounded-[40px] border border-slate-200 overflow-hidden flex flex-col group transition-all">
-                    <div class="p-8 flex-grow">
-                        <span class="bg-blue-50 text-blue-700 px-3 py-1 rounded text-[9px] font-black uppercase mb-6 inline-block tracking-widest">PTV VISUM • NETWORK OPTIMIZATION</span>
-                        <h3 class="text-2xl font-bold mb-4 tracking-tight group-hover:text-blue-600 transition-colors">Belluno Bus Network & DRT</h3>
-                        
-                        <!-- Visual: Load Factor Comparison -->
-                        <div class="chart-bg p-6 mb-8">
-                            <div class="flex justify-between items-end gap-4 h-24">
-                                <div class="flex flex-col items-center flex-1">
-                                    <div class="bg-slate-200 w-full h-[60%] rounded-t-lg relative italic"><span class="absolute -top-6 text-[10px] font-black text-slate-400">23.7%</span></div>
-                                    <span class="text-[9px] font-black text-slate-400 mt-2 uppercase">CURRENT</span>
-                                </div>
-                                <div class="flex flex-col items-center flex-1">
-                                    <div class="bg-blue-600 w-full h-[85%] rounded-t-lg relative shadow-lg italic"><span class="absolute -top-6 text-[10px] font-black text-blue-600">30.4%</span></div>
-                                    <span class="text-[9px] font-black text-blue-600 mt-2 uppercase font-bold">PROPOSED</span>
-                                </div>
-                            </div>
-                            <div class="text-center mt-4 text-[9px] font-black text-emerald-500 uppercase tracking-widest">+€390k Annual Income Increase</div>
-                        </div>
-
-                        <p class="text-slate-500 text-sm leading-relaxed mb-6 font-medium italic">Redesigned 10 bus lines. Optimized deadhead ratios (4.5% to 3.2%) and integrated DRT for low-demand zones in Line 3.</p>
-                    </div>
-                    <button onclick="openDeepDive('Bus Optimization')" class="w-full py-5 bg-slate-50 border-t border-slate-100 font-black text-[10px] uppercase tracking-widest text-slate-400 hover:text-blue-600 hover:bg-white transition-all">Project Data Deep Dive ✨</button>
-                </div>
-
-                <!-- Tire Factory Study (From Industrial PDF) -->
-                <div class="project-card bg-white rounded-[40px] border border-slate-200 overflow-hidden flex flex-col group transition-all">
-                    <div class="p-8 flex-grow">
-                        <span class="bg-amber-50 text-amber-700 px-3 py-1 rounded text-[9px] font-black uppercase mb-6 inline-block tracking-widest">BSc THESIS • INVESTMENT FEASIBILITY</span>
-                        <h3 class="text-2xl font-bold mb-4 tracking-tight group-hover:text-amber-600 transition-colors">Radial Tire Factory Implementation</h3>
-                        
-                        <!-- Visual: NPV Projection -->
-                        <div class="chart-bg p-6 mb-8">
-                            <svg class="w-full h-24" viewBox="0 0 100 40">
-                                <polyline fill="none" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round" points="0,35 20,38 40,30 60,20 80,10 100,5"/>
-                                <circle cx="40" cy="30" r="2.5" fill="#f59e0b" />
-                                <text x="45" y="32" font-size="4" font-weight="black" fill="#b45309">YEAR 2 BREAK-EVEN</text>
-                            </svg>
-                        </div>
-
-                        <p class="text-slate-500 text-sm leading-relaxed mb-6 font-medium italic">Complete financial roadmap for TBR/OTR radial production. Projected 34.4% IRR and €40M+ NPV using COMFAR III.</p>
-                    </div>
-                    <button onclick="openDeepDive('Tire Factory')" class="w-full py-5 bg-slate-50 border-t border-slate-100 font-black text-[10px] uppercase tracking-widest text-slate-400 hover:text-blue-600 hover:bg-white transition-all">Project Data Deep Dive ✨</button>
-                </div>
-
-                <!-- Lake Garda Big Data -->
-                <div class="project-card bg-white rounded-[40px] border border-slate-200 overflow-hidden flex flex-col group transition-all">
-                    <div class="p-8 flex-grow">
-                        <span class="bg-indigo-50 text-indigo-700 px-3 py-1 rounded text-[9px] font-black uppercase mb-6 inline-block tracking-widest">DATA SCIENCE • PYTHON</span>
-                        <h3 class="text-2xl font-bold mb-4 tracking-tight group-hover:text-blue-600 transition-colors leading-tight">Lake Garda Big Data Analytics</h3>
-                        
-                        <!-- Visual: Modal Split -->
-                        <div class="chart-bg p-6 mb-8 flex items-center justify-between">
-                            <div class="relative w-24 h-24">
-                                <svg viewBox="0 0 36 36" class="transform -rotate-90">
-                                    <circle cx="18" cy="18" r="15.9" fill="transparent" stroke="#f1f5f9" stroke-width="4"></circle>
-                                    <circle cx="18" cy="18" r="15.9" fill="transparent" stroke="#4f46e5" stroke-width="4" stroke-dasharray="30 100"></circle>
-                                </svg>
-                                <div class="absolute inset-0 flex items-center justify-center text-[9px] font-black text-indigo-600 italic">30% RAIL</div>
-                            </div>
-                            <div class="flex-grow pl-6">
-                                <div class="text-xl font-black italic">r = 0.90</div>
-                                <div class="text-[9px] font-black text-slate-400 uppercase tracking-widest">Pearson Correlation</div>
-                            </div>
-                        </div>
-
-                        <p class="text-slate-500 text-sm leading-relaxed mb-6 font-medium italic">Cleaned OD data for 3k zones. Validated tourist flows and designed five seasonal "Treni del Lago" rail service concepts.</p>
-                    </div>
-                    <button onclick="openDeepDive('Lake Garda')" class="w-full py-5 bg-slate-50 border-t border-slate-100 font-black text-[10px] uppercase tracking-widest text-slate-400 hover:text-blue-600 hover:bg-white transition-all">Project Data Deep Dive ✨</button>
-                </div>
-
-                <!-- Milan Decarbonization -->
-                <div class="project-card bg-white rounded-[40px] border border-slate-200 overflow-hidden flex flex-col group transition-all">
-                    <div class="p-8 flex-grow">
-                        <span class="bg-red-50 text-red-700 px-3 py-1 rounded text-[9px] font-black uppercase mb-6 inline-block tracking-widest">SUSTAINABILITY • SCENARIO MODELING</span>
-                        <h3 class="text-2xl font-bold mb-4 tracking-tight group-hover:text-red-600 transition-colors leading-tight">Milan Decarbonization 2040</h3>
-                        
-                        <!-- Visual: Emission Trend -->
-                        <div class="chart-bg p-6 mb-8">
-                            <svg class="w-full h-24" viewBox="0 0 100 40">
-                                <path d="M0,10 L30,12 L60,18 L100,28" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="2" fill="none" />
-                                <path d="M0,10 L30,15 L60,30 L100,38" stroke="#10b981" stroke-width="2.5" fill="none" />
-                                <text x="50" y="36" font-size="5" font-weight="black" fill="#10b981" class="uppercase italic">-50% CO2 TARGET</text>
-                            </svg>
-                        </div>
-
-                        <p class="text-slate-500 text-sm leading-relaxed mb-6 font-medium italic">Modeled Milan's emission trajectory and recommended extending Metro M6 to absorb growth while sustaining CO2 reductions.</p>
-                    </div>
-                    <button onclick="openDeepDive('Decarbonization')" class="w-full py-5 bg-slate-50 border-t border-slate-100 font-black text-[10px] uppercase tracking-widest text-slate-400 hover:text-blue-600 hover:bg-white transition-all">Project Data Deep Dive ✨</button>
-                </div>
-            </div>
+        <div class="stat-card">
+          <div class="stat-val">1.70×</div>
+          <div class="stat-label">Holiday Burden Ratio<br>MSc thesis — ATM Milan GTFS 2026</div>
         </div>
-    </section>
-
-    <!-- Background (Education & Experience) -->
-    <section id="background" class="py-32 px-6 border-t border-slate-100">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-5xl font-black tracking-tighter uppercase mb-20 text-slate-900">Career & Education</h2>
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-24 relative">
-                
-                <!-- Experience -->
-                <div>
-                    <h3 class="text-blue-600 font-black text-xs uppercase tracking-[0.3em] mb-12">Professional Roles</h3>
-                    <div class="relative pl-12 space-y-20">
-                        <div class="timeline-line"></div>
-                        
-                        <div class="relative">
-                            <div class="absolute -left-[54px] w-6 h-6 rounded-full bg-blue-600 border-4 border-white"></div>
-                            <div class="text-[10px] font-black text-blue-600 uppercase mb-2">July 2021 — Sept 2021</div>
-                            <h4 class="text-2xl font-extrabold text-slate-900">Investment Specialist Intern</h4>
-                            <p class="text-slate-500 font-bold mb-4 uppercase text-xs">Atieh Sepah (Investment Company)</p>
-                            <p class="text-slate-400 text-sm leading-relaxed">Built sensitivity models (IRR, NPV) for tire-production lines. Standardized Excel/Power Query templates, speeding up project evaluation cycles.</p>
-                        </div>
-
-                        <div class="relative">
-                            <div class="absolute -left-[54px] w-6 h-6 rounded-full bg-slate-200 border-4 border-white"></div>
-                            <div class="text-[10px] font-black text-slate-400 uppercase mb-2">Feb 2021 — March 2022</div>
-                            <h4 class="text-2xl font-extrabold text-slate-700">Editorial Quality Control</h4>
-                            <p class="text-slate-500 font-bold mb-4 uppercase text-xs">Fankaav Student Journal</p>
-                            <p class="text-slate-400 text-sm leading-relaxed">Managed QC workflows for 30+ technical articles, ensuring logical cohesion and citation accuracy.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Education -->
-                <div>
-                    <h3 class="text-indigo-600 font-black text-xs uppercase tracking-[0.3em] mb-12">Academic Journey</h3>
-                    <div class="relative pl-12 space-y-20">
-                        <div class="timeline-line"></div>
-                        
-                        <div class="relative">
-                            <div class="absolute -left-[54px] w-6 h-6 rounded-full bg-indigo-600 border-4 border-white"></div>
-                            <div class="text-[10px] font-black text-indigo-600 uppercase mb-2">2023 — Present</div>
-                            <h4 class="text-2xl font-extrabold text-slate-900">MSc in Mobility Engineering</h4>
-                            <p class="text-slate-500 font-bold mb-4 uppercase text-xs">Politecnico di Milano, Italy</p>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="px-2 py-1 bg-slate-100 rounded text-[9px] font-bold text-slate-400">LOGISTICS & FREIGHT</span>
-                                <span class="px-2 py-1 bg-slate-100 rounded text-[9px] font-bold text-slate-400">INFRASTRUCTURE FINANCE</span>
-                            </div>
-                        </div>
-
-                        <div class="relative">
-                            <div class="absolute -left-[54px] w-6 h-6 rounded-full bg-slate-200 border-4 border-white"></div>
-                            <div class="text-[10px] font-black text-slate-400 uppercase mb-2">2018 — 2022</div>
-                            <h4 class="text-2xl font-extrabold text-slate-700">BSc in Industrial Engineering</h4>
-                            <p class="text-slate-500 font-bold mb-4 uppercase text-xs">University of Tehran, Iran</p>
-                            <p class="text-slate-400 text-sm italic">Core Focus: Operations Research, Feasibility, Work Measurement.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="stat-card">
+          <div class="stat-val white">4,891</div>
+          <div class="stat-label">Stops Analysed<br>Holiday equity pipeline</div>
         </div>
-    </section>
+      </div>
+      <div class="skill-pills">
+        <span class="pill">OpenPaths Cube</span>
+        <span class="pill">PTV Visum</span>
+        <span class="pill">Python/pandas</span>
+        <span class="pill">GTFS</span>
+        <span class="pill">TomTom OD</span>
+        <span class="pill">Power BI</span>
+      </div>
+    </div>
+  </div>
+</div>
 
-    <!-- Skills Matrix -->
-    <section id="skills" class="py-32 bg-slate-900 text-white mx-4 rounded-[64px] mb-20 overflow-hidden relative">
-        <div class="max-w-7xl mx-auto px-6 relative z-10">
-            <h2 class="text-4xl font-black tracking-tighter uppercase mb-20">Technical Expertise</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-16">
-                <div>
-                    <h3 class="text-blue-400 font-black text-[10px] uppercase tracking-widest mb-8 border-b border-blue-900 pb-2">Mobility Modeling</h3>
-                    <ul class="space-y-4 text-slate-400 font-semibold text-lg">
-                        <li>PTV Visum (Expert)</li>
-                        <li>DRT System Optimization</li>
-                        <li>CO2 Scenario Modeling</li>
-                        <li>Headway & Timetable Design</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-emerald-400 font-black text-[10px] uppercase tracking-widest mb-8 border-b border-emerald-900 pb-2">Supply Chain & Data</h3>
-                    <ul class="space-y-4 text-slate-400 font-semibold text-lg">
-                        <li>Inventory (ABC, EOQ)</li>
-                        <li>Python (Pandas, Scikit)</li>
-                        <li>Power BI KPI Dashboards</li>
-                        <li>K-Means Zonal Clustering</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-amber-400 font-black text-[10px] uppercase tracking-widest mb-8 border-b border-amber-900 pb-2">Industrial Engineering</h3>
-                    <ul class="space-y-4 text-slate-400 font-semibold text-lg">
-                        <li>NPV/IRR/Payback Analysis</li>
-                        <li>SOP & OEE Implementation</li>
-                        <li>COMFAR III Financial modeling</li>
-                        <li>Work Measurement (MTM/MOST)</li>
-                    </ul>
-                </div>
-            </div>
+<!-- CITIEU MATCH BANNER -->
+<div class="match-banner">
+  <div class="match-inner">
+    <div>
+      <div class="match-label">Why CitiEU | CitiME</div>
+      <div class="match-title">Skills aligned<br>with your core<br>practice</div>
+    </div>
+    <div class="match-grid">
+      <div class="match-item">
+        <div class="match-icon">🗺️</div>
+        <div>
+          <div class="match-item-title">OD Matrix & Demand Analysis</div>
+          <div class="match-item-sub">Processed 3,000-zone national OD data; validated against official stats (r=0.90) — directly applicable to OpenPaths Cube model inputs</div>
         </div>
-    </section>
+      </div>
+      <div class="match-item">
+        <div class="match-icon">🚌</div>
+        <div>
+          <div class="match-item-title">Network Optimisation</div>
+          <div class="match-item-sub">Redesigned 8-line bus + DRT network in PTV Visum; headway/timetable optimisation translates to Cube PT assignment workflows</div>
+        </div>
+      </div>
+      <div class="match-item">
+        <div class="match-icon">📊</div>
+        <div>
+          <div class="match-item-title">Big Data & TomTom Integration</div>
+          <div class="match-item-sub">Used mobile-device OD datasets (Teralytics-style) for demand estimation; familiar with aggregated probe-data pipelines</div>
+        </div>
+      </div>
+      <div class="match-item">
+        <div class="match-icon">🇮🇹</div>
+        <div>
+          <div class="match-item-title">Milan-Based, Italian Market</div>
+          <div class="match-item-sub">Based at PoliMi, Italian B1 & improving — directly aligned with CitiME Milan office at Paderno Dugnano</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-    <!-- Modals -->
-    <div id="matcher-modal" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-6 bg-slate-900/70 backdrop-blur-md">
-        <div class="bg-white w-full max-w-2xl rounded-[40px] shadow-2xl overflow-hidden animate-in zoom-in-95">
-            <div class="p-10 ai-accent text-white flex justify-between items-center">
-                <div>
-                    <h2 class="text-3xl font-black uppercase tracking-tighter italic">Profile Matcher ✨</h2>
-                </div>
-                <button onclick="closeModal('matcher')" class="p-2 hover:bg-white/10 rounded-full transition-all"><i data-lucide="x"></i></button>
-            </div>
-            <div class="p-10">
-                <textarea id="jd-text" class="w-full h-44 p-6 bg-slate-50 border border-slate-200 rounded-3xl text-sm focus:ring-4 focus:ring-blue-500/10 outline-none resize-none mb-8 font-medium transition-all" placeholder="Paste JD requirements here..."></textarea>
-                <button onclick="runMatch()" id="match-btn" class="w-full ai-accent text-white py-5 rounded-2xl font-black uppercase tracking-[0.2em] shadow-xl flex items-center justify-center gap-4 hover:scale-[1.02] transition-all">
-                    <span id="btn-label">Evaluate Technical Fit ✨</span>
-                    <div id="loader" class="hidden animate-spin h-6 w-6 border-3 border-white border-t-transparent rounded-full"></div>
-                </button>
-                <div id="match-output" class="hidden mt-8 text-sm text-slate-700 leading-relaxed whitespace-pre-wrap max-h-60 overflow-y-auto p-8 bg-slate-50 rounded-3xl border border-slate-200 font-medium no-scrollbar"></div>
-            </div>
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-tag">Portfolio</div>
+  <div class="section-title">Transport Modelling Projects</div>
+  <p class="section-sub">Applied research and coursework across demand analysis, network optimisation, equity modelling, and financial feasibility.</p>
+
+  <!-- THESIS HIGHLIGHT -->
+  <div class="thesis-card reveal" id="thesis">
+    <div class="thesis-inner">
+      <div>
+        <div class="thesis-tag">MSc Thesis 2026 — In Progress</div>
+        <div class="thesis-title">Holiday Transit Equity in Milan — An Open-Data Framework</div>
+        <p class="thesis-desc">Full open-data pipeline quantifying how social vulnerability maps against holiday service cuts across ATM Milan's network. Combines GTFS schedule data, ISTAT census demographics, and a Robin Hood frequency reallocation model to identify and reduce equity gaps with zero additional operational cost.</p>
+        <div class="thesis-flow">
+          <span class="flow-node">ATM GTFS 2026</span>
+          <span class="flow-arrow">→</span>
+          <span class="flow-node">ISTAT Census</span>
+          <span class="flow-arrow">→</span>
+          <span class="flow-node">Holiday Need Index</span>
+          <span class="flow-arrow">→</span>
+          <span class="flow-node">Reallocation Model</span>
         </div>
+        <div class="skill-pills">
+          <span class="pill">Python / pandas</span>
+          <span class="pill">GTFS parsing</span>
+          <span class="pill">k-means clustering</span>
+          <span class="pill">Gini/Lorenz metrics</span>
+          <span class="pill">4,891 stops</span>
+        </div>
+      </div>
+      <div class="thesis-kpis">
+        <div class="thesis-kpi">
+          <span class="thesis-kpi-val" style="color:#00A896">1.70×</span>
+          <span class="thesis-kpi-lbl">Holiday burden<br>vs weekday</span>
+        </div>
+        <div class="thesis-kpi">
+          <span class="thesis-kpi-val" style="color:#F4A300">12.9%</span>
+          <span class="thesis-kpi-lbl">Gini improvement<br>moderate scenario</span>
+        </div>
+        <div class="thesis-kpi">
+          <span class="thesis-kpi-val" style="color:#E63946">4,058</span>
+          <span class="thesis-kpi-lbl">GTFS calendar<br>entries processed</span>
+        </div>
+        <div class="thesis-kpi">
+          <span class="thesis-kpi-val" style="color:#fff">€0</span>
+          <span class="thesis-kpi-lbl">Additional cost<br>to ATM operator</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Other projects grid -->
+  <div class="projects-grid">
+
+    <div class="project-card reveal">
+      <div class="card-header" style="background: linear-gradient(90deg, #00A896, #007A6E)"></div>
+      <div class="card-body">
+        <div class="card-tags">
+          <span class="card-tag">PTV Visum</span>
+          <span class="card-tag">DRT</span>
+          <span class="card-tag citieu-tag">Cube-compatible</span>
+        </div>
+        <div class="card-title">Bus Network Optimisation + Demand-Responsive Transport</div>
+        <p class="card-desc">Redesigned 8–10 line urban bus network under strict fleet and vehicle-km constraints. Integrated DRT for low-demand zones, optimised timetables and headways across all service bands, and evaluated financial impact with full KPI reporting.</p>
+        <div class="card-metrics">
+          <div class="metric"><span class="metric-val">28%</span><span class="metric-lbl">Load factor uplift</span></div>
+          <div class="metric"><span class="metric-val amber">-7%</span><span class="metric-lbl">OPEX/km reduction</span></div>
+          <div class="metric"><span class="metric-val navy">+€390k</span><span class="metric-lbl">Annual income gain</span></div>
+        </div>
+      </div>
     </div>
 
-    <div id="dive-modal" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-6 bg-slate-900/70 backdrop-blur-md">
-        <div class="bg-white w-full max-w-lg rounded-[40px] shadow-2xl overflow-hidden">
-            <div class="p-8 border-b border-slate-100 flex justify-between items-center">
-                <div>
-                    <h3 class="font-black text-xl tracking-tight uppercase">Technical Insight</h3>
-                    <p id="dive-title" class="text-blue-600 text-[10px] font-black uppercase tracking-widest mt-1"></p>
-                </div>
-                <button onclick="closeModal('dive')" class="p-2 hover:bg-slate-50 rounded-full"><i data-lucide="x"></i></button>
-            </div>
-            <div id="dive-chat" class="p-8 h-80 overflow-y-auto space-y-6 font-medium text-sm text-slate-700 no-scrollbar">
-                <div class="bg-blue-50 p-5 rounded-3xl italic">Ask me a technical question about the constraints, software methodology, or metrics of this project.</div>
-            </div>
-            <div class="p-4 bg-slate-50 border-t border-slate-100 flex gap-2">
-                <input id="dive-input" type="text" placeholder="Your question..." class="flex-grow bg-white px-6 py-4 rounded-2xl text-sm border-none outline-none shadow-sm font-medium">
-                <button onclick="askAI()" class="p-4 bg-blue-600 text-white rounded-2xl hover:bg-blue-700 transition-all"><i data-lucide="send" class="w-5 h-5"></i></button>
-            </div>
+    <div class="project-card reveal">
+      <div class="card-header" style="background: linear-gradient(90deg, #F4A300, #D4870A)"></div>
+      <div class="card-body">
+        <div class="card-tags">
+          <span class="card-tag">Python</span>
+          <span class="card-tag">Power BI</span>
+          <span class="card-tag citieu-tag">TomTom OD data</span>
         </div>
+        <div class="card-title">Lake Garda Mobility — Big-Data OD Demand Analysis</div>
+        <p class="card-desc">Processed national mobile-device OD data across 3,000 zones to quantify tourism and commuting flows on the Brescia–Verona corridor. Designed five seasonal "Treni del Lago" rail service concepts and evaluated a new station using k-means clustering.</p>
+        <div class="card-metrics">
+          <div class="metric"><span class="metric-val">3,000</span><span class="metric-lbl">OD zones</span></div>
+          <div class="metric"><span class="metric-val amber">r=0.90</span><span class="metric-lbl">Validation</span></div>
+          <div class="metric"><span class="metric-val navy">30k</span><span class="metric-lbl">Daily demand</span></div>
+        </div>
+      </div>
     </div>
 
-    <footer class="py-20 text-center bg-white border-t border-slate-100">
-        <p class="text-[10px] font-black text-slate-300 uppercase tracking-[0.4em] mb-4">Precision Engineering & Data Science</p>
-        <p class="text-slate-400 text-xs">© 2026 Amirhassan Darvishzade</p>
-    </footer>
+    <div class="project-card reveal">
+      <div class="card-header" style="background: linear-gradient(90deg, #E63946, #C0212D)"></div>
+      <div class="card-body">
+        <div class="card-tags">
+          <span class="card-tag">CO₂ Scenario</span>
+          <span class="card-tag">Sustainable Mobility</span>
+        </div>
+        <div class="card-title">Milan Decarbonisation 2040 — Emission Scenario Modelling</div>
+        <p class="card-desc">Modelled Milan's transport emission trajectory under business-as-usual and intervention scenarios. Recommended Metro M6 extension to absorb modal shift while sustaining CO₂ reduction targets through 2040.</p>
+        <div class="card-metrics">
+          <div class="metric"><span class="metric-val red">-50%</span><span class="metric-lbl">CO₂ target</span></div>
+          <div class="metric"><span class="metric-val">2040</span><span class="metric-lbl">Horizon</span></div>
+          <div class="metric"><span class="metric-val navy">M6</span><span class="metric-lbl">Extension study</span></div>
+        </div>
+      </div>
+    </div>
 
-    <script>
-        lucide.createIcons();
-        const apiKey = ""; 
-        const MODEL = "gemini-2.5-flash-preview-09-2025";
-        
-        const KNOWLEDGE_BASE = `You are Amirhassan Darvishzade's AI Twin. 
-        MSc Mobility Engineering (Polimi), BSc Industrial Engineering (Tehran).
-        Hard Skills: PTV Visum, Python, Power BI, Excel, COMFAR III.
-        Specific Results:
-        - Healthcare App: 185.09% IRR, 2.02 year payback, 50k users capacity.
-        - Belluno Bus: 23.7% -> 30.4% load factor, €390k income increase.
-        - Lake Garda: OD matrix for 3000 zones, r=0.9 Pearson correlation.
-        - Tire Study: 34.4% IRR, €40M+ NPV.
-        - Milan Decarbonization: -50% Urban CO2 forecast.
-        Answer with engineering precise, data-driven, and professional tone. Answer AS Amirhassan.`;
+    <div class="project-card reveal">
+      <div class="card-header" style="background: linear-gradient(90deg, #0B1F3A, #1A3A5C)"></div>
+      <div class="card-body">
+        <div class="card-tags">
+          <span class="card-tag">COMFAR III</span>
+          <span class="card-tag">Feasibility</span>
+          <span class="card-tag citieu-tag">Industrial</span>
+        </div>
+        <div class="card-title">Radial Tyre Factory — Full Financial Feasibility Study</div>
+        <p class="card-desc">Complete BSc thesis financial roadmap for a TBR/OTR radial tyre production facility. Built NPV/IRR models using COMFAR III, demand forecasts, and logistics flow analysis. Directly applicable to transport infrastructure investment appraisal.</p>
+        <div class="card-metrics">
+          <div class="metric"><span class="metric-val amber">34.4%</span><span class="metric-lbl">IRR projected</span></div>
+          <div class="metric"><span class="metric-val">€40M+</span><span class="metric-lbl">NPV</span></div>
+          <div class="metric"><span class="metric-val navy">2yr</span><span class="metric-lbl">Break-even</span></div>
+        </div>
+      </div>
+    </div>
 
-        async function callGemini(prompt, system) {
-            const url = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent?key=${apiKey}`;
-            const payload = { contents: [{ parts: [{ text: prompt }] }], systemInstruction: { parts: [{ text: system }] } };
-            for (let i = 0; i < 5; i++) {
-                try {
-                    const res = await fetch(url, { method: 'POST', body: JSON.stringify(payload) });
-                    if (!res.ok) throw new Error();
-                    const data = await res.json();
-                    return data.candidates[0].content.parts[0].text;
-                } catch (e) { await new Promise(r => setTimeout(r, Math.pow(2, i) * 1000)); }
-            }
-            return "Connection error.";
-        }
+  </div>
+</section>
 
-        function openModal(id) { document.getElementById(`${id}-modal`).classList.remove('hidden'); }
-        function closeModal(id) { document.getElementById(`${id}-modal`).classList.add('hidden'); }
+<!-- SKILLS -->
+<div class="skills-section" id="skills">
+  <div class="skills-inner">
+    <div class="section-tag" style="border-color:rgba(0,168,150,0.3)">Technical Expertise</div>
+    <div class="section-title" style="color:var(--white); margin-bottom:2.5rem">Tools & Capabilities</div>
+    <div class="skills-grid">
+      <div class="skill-group reveal">
+        <div class="skill-group-icon">🚦</div>
+        <div class="skill-group-title">Transport Modelling</div>
+        <div class="skill-item"><span class="skill-name">PTV Visum</span><div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">DRT Optimisation</span><div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">GTFS Processing</span><div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">OD Matrix Analysis</span><div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">OpenPaths Cube*</span><div class="skill-bar"><div class="skill-fill" style="width:30%"></div></div></div>
+      </div>
+      <div class="skill-group reveal">
+        <div class="skill-group-icon">📊</div>
+        <div class="skill-group-title">Data & Analytics</div>
+        <div class="skill-item"><span class="skill-name">Python / pandas</span><div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">scikit-learn</span><div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">Power BI</span><div class="skill-bar"><div class="skill-fill" style="width:82%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">Excel / Power Query</span><div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">k-means clustering</span><div class="skill-bar"><div class="skill-fill" style="width:78%"></div></div></div>
+      </div>
+      <div class="skill-group reveal">
+        <div class="skill-group-icon">🏙️</div>
+        <div class="skill-group-title">Urban & PT Planning</div>
+        <div class="skill-item"><span class="skill-name">Headway design</span><div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">Accessibility analysis</span><div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">Equity modelling</span><div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">CO₂ scenarios</span><div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div></div>
+      </div>
+      <div class="skill-group reveal">
+        <div class="skill-group-icon">💼</div>
+        <div class="skill-group-title">Finance & Operations</div>
+        <div class="skill-item"><span class="skill-name">NPV / IRR / Payback</span><div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">Sensitivity analysis</span><div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">COMFAR III</span><div class="skill-bar"><div class="skill-fill" style="width:70%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">MS Project</span><div class="skill-bar"><div class="skill-fill" style="width:72%"></div></div></div>
+      </div>
+    </div>
+    <p style="margin-top:1.5rem; font-size:0.78rem; color:rgba(255,255,255,0.3)">* OpenPaths Cube — currently learning; familiar with Cube's network and PT modules via transport modelling coursework</p>
+  </div>
+</div>
 
-        async function runMatch() {
-            const jd = document.getElementById('jd-text').value; if(!jd) return;
-            const loader = document.getElementById('loader'); const btnLabel = document.getElementById('btn-label');
-            loader.classList.remove('hidden'); btnLabel.innerText = "Analyzing...";
-            const res = await callGemini(`Score this JD match: "${jd}". Highlight projects like the 185% IRR Healthcare app if relevant.`, KNOWLEDGE_BASE + " Career Strategist Mode.");
-            document.getElementById('match-output').innerText = res;
-            document.getElementById('match-output').classList.remove('hidden');
-            loader.classList.add('hidden'); btnLabel.innerText = "Evaluate Technical Fit ✨";
-        }
+<!-- BACKGROUND -->
+<section id="background" style="background: var(--cream);">
+  <div class="section-tag">Background</div>
+  <div class="section-title">Education & Experience</div>
+  <p class="section-sub">Engineering foundation from Tehran, applied transport expertise from Politecnico di Milano.</p>
+  <div class="timeline">
+    <div class="tl-item reveal">
+      <div class="tl-dot"></div>
+      <div class="tl-date">Sep 2023 — Jul 2026 (expected)</div>
+      <div class="tl-role">MSc Mobility Engineering</div>
+      <div class="tl-org">Politecnico di Milano, Milan, Italy</div>
+      <p class="tl-body">Coursework in Transportation Planning, Data Science for Mobility, Mobility Infrastructures, and Sustainable Mobility. Thesis: Holiday Transit Equity in Milan — an open-data GTFS + ISTAT equity pipeline.</p>
+    </div>
+    <div class="tl-item reveal">
+      <div class="tl-dot"></div>
+      <div class="tl-date">Jul 2021 — Sep 2021</div>
+      <div class="tl-role">Investment Specialist Intern</div>
+      <div class="tl-org">Atieh Sepah Investment Company, Tehran</div>
+      <p class="tl-body">Built NPV/IRR feasibility models for tyre production lines; standardised Excel/Power Query appraisal templates adopted company-wide; conducted price, demand, and logistics sensitivity analyses.</p>
+    </div>
+    <div class="tl-item reveal">
+      <div class="tl-dot"></div>
+      <div class="tl-date">Sep 2018 — Jul 2022</div>
+      <div class="tl-role">BSc Industrial Engineering</div>
+      <div class="tl-org">University of Tehran, Iran</div>
+      <p class="tl-body">Core focus on operations research, feasibility modelling, work measurement (MTM/MOST), and industrial systems design. Final thesis: Radial Tyre Factory financial feasibility (COMFAR III, NPV €40M+).</p>
+    </div>
+  </div>
+</section>
 
-        let curP = "";
-        function openDeepDive(title) { curP = title; document.getElementById('dive-title').innerText = title; openModal('dive'); }
+<!-- CONTACT -->
+<div class="contact-section" id="contact">
+  <div class="contact-inner">
+    <div class="contact-title">Let's work together</div>
+    <p class="contact-sub">MSc Mobility Engineering candidate (PoliMi, July 2026), based in Milan. Open to transport modelling internships — particularly in OD analysis, PT network modelling, and OpenPaths Cube project support.</p>
+    <div class="contact-links">
+      <a href="mailto:amirhassan.darvishzade@mail.polimi.it" class="contact-chip">📧 amirhassan.darvishzade@mail.polimi.it</a>
+      <a href="tel:+393444924474" class="contact-chip">📞 +39 344 492 4474</a>
+  </div>
+</div>
 
-        async function askAI() {
-            const input = document.getElementById('dive-input'); const q = input.value; if(!q) return;
-            const chat = document.getElementById('dive-chat');
-            chat.innerHTML += `<div class="bg-slate-100 p-5 rounded-3xl text-right ml-12 font-bold">${q}</div>`;
-            input.value = ""; chat.scrollTop = chat.scrollHeight;
-            const res = await callGemini(`Regarding the project "${curP}": ${q}`, KNOWLEDGE_BASE);
-            chat.innerHTML += `<div class="bg-blue-50 p-5 rounded-3xl mr-12 animate-in fade-in">${res}</div>`;
-            chat.scrollTop = chat.scrollHeight;
-        }
-    </script>
+<footer>© 2026 Amirhassan Darvishzade · Milan, Italy · MSc Mobility Engineering, Politecnico di Milano</footer>
+
+<script>
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('visible'); }});
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
 </body>
 </html>

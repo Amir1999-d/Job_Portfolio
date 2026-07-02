@@ -4,74 +4,57 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Amirhassan Darvishzade — Transport Modelling Portfolio</title>
+<meta name="description" content="Transport planning and mobility analytics portfolio — MSc Mobility Engineering, Politecnico di Milano. OD demand analysis, GTFS pipelines, PTV Visum, Python, Power BI.">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root {
-  --navy: #0B1F3A;
+  --navy:     #0B1F3A;
   --navy-mid: #0D2E50;
-  --teal: #00A896;
-  --teal-dk: #007A6E;
-  --amber: #F4A300;
-  --red: #E63946;
-  --cream: #F4F1EC;
-  --white: #FFFFFF;
-  --gray-lt: #E8EDF2;
+  --teal:     #00A896;
+  --teal-dk:  #007A6E;
+  --amber:    #F4A300;
+  --red:      #E63946;
+  --cream:    #F4F1EC;
+  --white:    #FFFFFF;
+  --gray-lt:  #E8EDF2;
   --gray-mid: #7A8A9A;
   --dark-txt: #1F2937;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
 html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--dark-txt); overflow-x: hidden; }
 
-body {
-  font-family: 'DM Sans', sans-serif;
-  background: var(--cream);
-  color: var(--dark-txt);
-  overflow-x: hidden;
-}
-
-/* ── HEADER ─────────────────────────────────────────────────────── */
+/* ── HEADER ────────────────────────────────────────────────────────── */
 header {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   background: rgba(11,31,58,0.97);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(0,168,150,0.25);
-  padding: 0 5vw;
-  height: 64px;
+  padding: 0 5vw; height: 64px;
   display: flex; align-items: center; justify-content: space-between;
 }
-.logo {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.2rem; font-weight: 700;
-  color: var(--white);
-  letter-spacing: 0.02em;
-}
+.logo { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: var(--white); letter-spacing: 0.02em; }
 .logo span { color: var(--teal); }
 nav { display: flex; gap: 2rem; }
-nav a {
-  color: rgba(255,255,255,0.7);
-  text-decoration: none;
-  font-size: 0.82rem; font-weight: 500; letter-spacing: 0.06em;
-  text-transform: uppercase;
-  transition: color 0.2s;
-}
+nav a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.82rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.2s; }
 nav a:hover { color: var(--teal); }
+.nav-cta {
+  background: var(--teal); color: var(--white) !important;
+  padding: 0.4rem 1rem; border-radius: 5px;
+  transition: background 0.2s !important;
+}
+.nav-cta:hover { background: var(--teal-dk) !important; color: var(--white) !important; }
 
-/* ── HERO ────────────────────────────────────────────────────────── */
+/* ── HERO ──────────────────────────────────────────────────────────── */
 .hero {
-  min-height: 100vh;
-  background: var(--navy);
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  padding: 80px 5vw 0;
-  position: relative;
-  overflow: hidden;
+  min-height: 100vh; background: var(--navy);
+  display: grid; grid-template-columns: 1fr 1fr;
+  align-items: center; padding: 80px 5vw 0;
+  position: relative; overflow: hidden;
 }
 .hero::before {
-  content: '';
-  position: absolute; top: -20%; right: -10%;
+  content: ''; position: absolute; top: -20%; right: -10%;
   width: 70vw; height: 70vw;
   background: radial-gradient(circle, rgba(0,168,150,0.08) 0%, transparent 65%);
   pointer-events: none;
@@ -80,419 +63,242 @@ nav a:hover { color: var(--teal); }
   position: absolute; inset: 0;
   background-image: linear-gradient(rgba(0,168,150,0.04) 1px, transparent 1px),
                     linear-gradient(90deg, rgba(0,168,150,0.04) 1px, transparent 1px);
-  background-size: 48px 48px;
-  pointer-events: none;
+  background-size: 48px 48px; pointer-events: none;
 }
 .hero-left { position: relative; z-index: 2; padding-right: 3rem; }
 .eyebrow {
   display: inline-flex; align-items: center; gap: 0.6rem;
-  background: rgba(0,168,150,0.12);
-  border: 1px solid rgba(0,168,150,0.35);
-  border-radius: 100px;
-  padding: 0.35rem 1rem;
-  font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--teal);
-  margin-bottom: 1.8rem;
+  background: rgba(0,168,150,0.12); border: 1px solid rgba(0,168,150,0.35);
+  border-radius: 100px; padding: 0.35rem 1rem;
+  font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--teal); margin-bottom: 1.8rem;
   animation: fadeUp 0.6s ease both;
 }
 .eyebrow::before { content: '●'; font-size: 0.5rem; }
 h1 {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(2.6rem, 4.5vw, 4rem);
-  font-weight: 900; line-height: 1.1;
-  color: var(--white);
-  margin-bottom: 1.4rem;
+  font-size: clamp(2.6rem, 4.5vw, 4rem); font-weight: 900; line-height: 1.1;
+  color: var(--white); margin-bottom: 1.4rem;
   animation: fadeUp 0.6s 0.1s ease both;
 }
 h1 .accent { color: var(--teal); }
 .hero-desc {
-  font-size: 1.05rem; line-height: 1.75;
-  color: rgba(255,255,255,0.65);
-  margin-bottom: 2.5rem;
-  max-width: 46ch;
+  font-size: 1.05rem; line-height: 1.75; color: rgba(255,255,255,0.65);
+  margin-bottom: 2.5rem; max-width: 46ch;
   animation: fadeUp 0.6s 0.2s ease both;
 }
-.hero-cta {
-  display: flex; gap: 1rem; flex-wrap: wrap;
-  animation: fadeUp 0.6s 0.3s ease both;
-}
+.hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; animation: fadeUp 0.6s 0.3s ease both; }
 .btn {
   display: inline-flex; align-items: center; gap: 0.5rem;
-  padding: 0.85rem 2rem;
-  border-radius: 6px;
+  padding: 0.85rem 2rem; border-radius: 6px;
   font-weight: 600; font-size: 0.88rem; letter-spacing: 0.04em;
-  text-decoration: none; cursor: pointer; border: none;
-  transition: all 0.22s ease;
+  text-decoration: none; cursor: pointer; border: none; transition: all 0.22s ease;
 }
-.btn-primary {
-  background: var(--teal);
-  color: var(--white);
-}
+.btn-primary { background: var(--teal); color: var(--white); }
 .btn-primary:hover { background: var(--teal-dk); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,168,150,0.35); }
-.btn-outline {
-  background: transparent;
-  color: var(--white);
-  border: 1px solid rgba(255,255,255,0.3);
-}
+.btn-outline { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,0.3); }
 .btn-outline:hover { border-color: var(--teal); color: var(--teal); transform: translateY(-2px); }
 
-/* Hero right - stats panel */
-.hero-right {
-  position: relative; z-index: 2;
-  animation: fadeUp 0.6s 0.4s ease both;
-}
+/* Hero right */
+.hero-right { position: relative; z-index: 2; animation: fadeUp 0.6s 0.4s ease both; }
 .stats-panel {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(0,168,150,0.2);
-  border-radius: 16px;
-  padding: 2rem;
-  backdrop-filter: blur(8px);
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(0,168,150,0.2);
+  border-radius: 16px; padding: 2rem; backdrop-filter: blur(8px);
 }
-.stats-title {
-  font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em;
-  text-transform: uppercase; color: var(--gray-mid);
-  margin-bottom: 1.5rem;
-}
-.stats-grid {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
-}
+.stats-title { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gray-mid); margin-bottom: 1.5rem; }
+.stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem; }
 .stat-card {
-  background: var(--navy-mid);
-  border: 1px solid rgba(0,168,150,0.15);
-  border-radius: 10px;
-  padding: 1.2rem 1rem;
+  background: var(--navy-mid); border: 1px solid rgba(0,168,150,0.15);
+  border-radius: 10px; padding: 1.2rem 1rem;
   position: relative; overflow: hidden;
   transition: transform 0.2s, border-color 0.2s;
 }
 .stat-card:hover { transform: translateY(-3px); border-color: var(--teal); }
-.stat-card::before {
-  content: '';
-  position: absolute; top: 0; left: 0; right: 0; height: 3px;
-  background: var(--teal);
-}
-.stat-val {
-  font-family: 'Playfair Display', serif;
-  font-size: 2rem; font-weight: 700;
-  color: var(--teal);
-  line-height: 1;
-  margin-bottom: 0.4rem;
-}
+.stat-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--teal); }
+.stat-val { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: var(--teal); line-height: 1; margin-bottom: 0.4rem; }
 .stat-val.amber { color: var(--amber); }
-.stat-val.red { color: var(--red); }
+.stat-val.red   { color: var(--red); }
 .stat-val.white { color: var(--white); }
 .stat-label { font-size: 0.8rem; color: rgba(255,255,255,0.5); line-height: 1.3; }
-
 .skill-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
 .pill {
-  background: rgba(0,168,150,0.1);
-  border: 1px solid rgba(0,168,150,0.25);
-  border-radius: 100px;
-  padding: 0.3rem 0.9rem;
-  font-size: 0.78rem; font-weight: 500;
-  color: var(--teal);
-  font-family: 'DM Mono', monospace;
+  background: rgba(0,168,150,0.1); border: 1px solid rgba(0,168,150,0.25);
+  border-radius: 100px; padding: 0.3rem 0.9rem;
+  font-size: 0.78rem; font-weight: 500; color: var(--teal); font-family: 'DM Mono', monospace;
 }
 
-/* ── CITIEU MATCH BANNER ─────────────────────────────────────────── */
-.match-banner {
+/* ── VALUE PROPOSITION BANNER ──────────────────────────────────────── */
+.value-banner {
   background: linear-gradient(135deg, var(--navy) 0%, #0a2540 100%);
   border-top: 2px solid var(--teal);
   border-bottom: 2px solid rgba(0,168,150,0.2);
-  padding: 3rem 5vw;
+  padding: 4rem 5vw;
 }
-.match-inner {
-  max-width: 1100px; margin: 0 auto;
-  display: grid; grid-template-columns: 1fr 2fr;
-  gap: 3rem; align-items: center;
+.value-inner { max-width: 1100px; margin: 0 auto; }
+.value-top {
+  display: grid; grid-template-columns: 1fr 2fr; gap: 3rem; align-items: start; margin-bottom: 3rem;
 }
-.match-label {
-  font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
-  color: var(--teal); font-weight: 600; margin-bottom: 0.8rem;
+.value-label { font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--teal); font-weight: 600; margin-bottom: 0.8rem; }
+.value-title { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: var(--white); line-height: 1.2; }
+.value-desc { font-size: 0.95rem; color: rgba(255,255,255,0.6); line-height: 1.7; padding-top: 0.5rem; }
+.value-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
+.value-item {
+  display: flex; align-items: flex-start; gap: 0.9rem;
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(0,168,150,0.15);
+  border-radius: 10px; padding: 1.1rem;
+  transition: border-color 0.2s, transform 0.2s;
 }
-.match-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 2rem; font-weight: 700;
-  color: var(--white); line-height: 1.2;
-}
-.match-grid {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 0.9rem;
-}
-.match-item {
-  display: flex; align-items: flex-start; gap: 0.8rem;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(0,168,150,0.15);
-  border-radius: 10px;
-  padding: 0.9rem 1rem;
-}
-.match-icon { font-size: 1.3rem; flex-shrink: 0; }
-.match-item-title { font-size: 0.85rem; font-weight: 600; color: var(--white); margin-bottom: 0.2rem; }
-.match-item-sub { font-size: 0.78rem; color: rgba(255,255,255,0.5); line-height: 1.4; }
+.value-item:hover { border-color: var(--teal); transform: translateY(-2px); }
+.value-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 0.1rem; }
+.value-item-title { font-size: 0.88rem; font-weight: 600; color: var(--white); margin-bottom: 0.3rem; }
+.value-item-sub { font-size: 0.78rem; color: rgba(255,255,255,0.5); line-height: 1.5; }
 
-/* ── SECTION WRAPPER ─────────────────────────────────────────────── */
-section {
-  padding: 6rem 5vw;
-  max-width: 1200px; margin: 0 auto;
-}
+/* ── SECTION WRAPPER ───────────────────────────────────────────────── */
+section { padding: 6rem 5vw; max-width: 1200px; margin: 0 auto; }
 .section-tag {
-  display: inline-block;
-  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em;
+  display: inline-block; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em;
   text-transform: uppercase; color: var(--teal);
-  background: rgba(0,168,150,0.08);
-  border: 1px solid rgba(0,168,150,0.2);
-  border-radius: 100px; padding: 0.28rem 0.9rem;
-  margin-bottom: 0.8rem;
+  background: rgba(0,168,150,0.08); border: 1px solid rgba(0,168,150,0.2);
+  border-radius: 100px; padding: 0.28rem 0.9rem; margin-bottom: 0.8rem;
 }
-.section-title {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 700;
-  color: var(--navy); margin-bottom: 0.6rem;
-}
+.section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 700; color: var(--navy); margin-bottom: 0.6rem; }
 .section-sub { font-size: 1rem; color: var(--gray-mid); margin-bottom: 3rem; max-width: 60ch; }
 
-/* ── PROJECTS ────────────────────────────────────────────────────── */
-.projects-grid {
-  display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-  gap: 1.8rem;
-}
-.project-card {
-  background: var(--white);
-  border: 1px solid var(--gray-lt);
-  border-radius: 14px;
-  overflow: hidden;
-  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
-  cursor: pointer;
-}
-.project-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 50px rgba(11,31,58,0.12);
-  border-color: var(--teal);
-}
-.card-header {
-  height: 5px;
-}
-.card-body { padding: 1.6rem; }
-.card-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; }
-.card-tag {
-  font-size: 0.7rem; font-weight: 600; letter-spacing: 0.08em;
-  text-transform: uppercase;
-  background: rgba(0,168,150,0.08);
-  color: var(--teal-dk);
-  border-radius: 4px; padding: 0.2rem 0.6rem;
-}
-.card-tag.citieu-tag {
-  background: rgba(11,31,58,0.06);
-  color: var(--navy);
-}
-.card-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.2rem; font-weight: 700;
-  color: var(--navy); margin-bottom: 0.7rem; line-height: 1.3;
-}
-.card-desc { font-size: 0.9rem; color: var(--gray-mid); line-height: 1.6; margin-bottom: 1.2rem; }
-.card-metrics {
-  display: flex; gap: 0.8rem; flex-wrap: wrap;
-  border-top: 1px solid var(--gray-lt);
-  padding-top: 1rem;
-}
-.metric {
-  flex: 1; min-width: 80px;
-  text-align: center;
-  background: #F8FFFE;
-  border: 1px solid rgba(0,168,150,0.15);
-  border-radius: 8px; padding: 0.6rem 0.4rem;
-}
-.metric-val {
-  font-family: 'DM Mono', monospace;
-  font-size: 1.05rem; font-weight: 500;
-  color: var(--teal); display: block; margin-bottom: 0.2rem;
-}
-.metric-val.amber { color: var(--amber); }
-.metric-val.red { color: var(--red); }
-.metric-val.navy { color: var(--navy); }
-.metric-lbl { font-size: 0.7rem; color: var(--gray-mid); line-height: 1.2; }
-
-/* ── THESIS HIGHLIGHT EXTENSIONS ─────────────────────────────────── */
+/* ── THESIS HIGHLIGHT ──────────────────────────────────────────────── */
 .thesis-card {
-  background: var(--navy);
-  border-radius: 18px;
-  overflow: hidden;
-  margin-bottom: 3rem;
-  position: relative;
+  background: var(--navy); border-radius: 18px;
+  overflow: hidden; margin-bottom: 3rem; position: relative;
 }
 .thesis-card::before {
-  content: '';
-  position: absolute; inset: 0;
+  content: ''; position: absolute; inset: 0;
   background-image: linear-gradient(rgba(0,168,150,0.04) 1px, transparent 1px),
                     linear-gradient(90deg, rgba(0,168,150,0.04) 1px, transparent 1px);
-  background-size: 40px 40px;
-  pointer-events: none;
+  background-size: 40px 40px; pointer-events: none;
 }
 .thesis-inner {
   position: relative; z-index: 1;
-  display: grid; grid-template-columns: 3fr 2fr;
-  gap: 2.5rem;
-  padding: 3rem;
-}
-@media (max-width: 900px) {
-  .hero, .thesis-inner, .match-inner { grid-template-columns: 1fr; }
-  .hero-left { padding-right: 0; }
+  display: grid; grid-template-columns: 3fr 2fr; gap: 2.5rem; padding: 3rem;
 }
 .thesis-tag {
-  display: inline-block;
-  background: rgba(0,168,150,0.15);
-  border: 1px solid rgba(0,168,150,0.3);
-  color: var(--teal); font-size: 0.72rem; letter-spacing: 0.1em;
-  text-transform: uppercase; font-weight: 600;
-  border-radius: 100px; padding: 0.3rem 0.9rem;
-  margin-bottom: 1rem;
+  display: inline-block; background: rgba(0,168,150,0.15); border: 1px solid rgba(0,168,150,0.3);
+  color: var(--teal); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600;
+  border-radius: 100px; padding: 0.3rem 0.9rem; margin-bottom: 1rem;
 }
-.thesis-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 2rem; font-weight: 700; color: var(--white); line-height: 1.25;
-  margin-bottom: 1rem;
-}
+.thesis-title { font-family: 'Playfair Display', serif; font-size: 1.9rem; font-weight: 700; color: var(--white); line-height: 1.25; margin-bottom: 1rem; }
 .thesis-desc { font-size: 0.95rem; color: rgba(255,255,255,0.65); line-height: 1.7; margin-bottom: 1.5rem; }
-
-.thesis-extended-content {
-  grid-column: span 2;
-  border-top: 1px solid rgba(0,168,150,0.2);
-  padding-top: 2.5rem;
-  margin-top: 1rem;
-}
-@media (max-width: 900px) { .thesis-extended-content { grid-column: span 1; } }
-
-.thesis-grid-3 {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-  margin-bottom: 2.5rem;
-}
-.thesis-subcard {
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(0,168,150,0.15);
-  border-radius: 12px;
-  padding: 1.5rem;
-}
-.thesis-subcard-title {
-  font-size: 0.9rem; font-weight: 600; text-transform: uppercase;
-  color: var(--teal); margin-bottom: 0.8rem; letter-spacing: 0.05em;
-}
-.thesis-subcard-text {
-  font-size: 0.88rem; color: rgba(255,255,255,0.7); line-height: 1.6;
-}
-.thesis-subcard-text li {
-  margin-left: 1.2rem; margin-bottom: 0.4rem;
-}
-
-.thesis-flow {
-  display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.4rem;
-}
+.thesis-flow { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.4rem; }
 .flow-node {
-  background: rgba(0,168,150,0.1);
-  border: 1px solid rgba(0,168,150,0.3);
+  background: rgba(0,168,150,0.1); border: 1px solid rgba(0,168,150,0.3);
   border-radius: 6px; padding: 0.3rem 0.7rem;
   font-size: 0.78rem; color: var(--teal); font-family: 'DM Mono', monospace;
 }
 .flow-arrow { color: rgba(255,255,255,0.3); font-size: 0.9rem; }
-.thesis-kpis {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 0.8rem;
-}
+.thesis-kpis { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
 .thesis-kpi {
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(0,168,150,0.15);
-  border-radius: 10px; padding: 1.2rem 1rem;
-  text-align: center;
+  background: rgba(255,255,255,0.05); border: 1px solid rgba(0,168,150,0.15);
+  border-radius: 10px; padding: 1.2rem 1rem; text-align: center;
 }
-.thesis-kpi-val {
-  font-family: 'Playfair Display', serif;
-  font-size: 2rem; font-weight: 700;
-  display: block; margin-bottom: 0.3rem;
-}
+.thesis-kpi-val { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; display: block; margin-bottom: 0.3rem; }
 .thesis-kpi-lbl { font-size: 0.75rem; color: rgba(255,255,255,0.45); line-height: 1.3; }
 
-/* ── SKILLS ──────────────────────────────────────────────────────── */
+/* Extended thesis content */
+.thesis-extended {
+  grid-column: span 2;
+  border-top: 1px solid rgba(0,168,150,0.2);
+  padding-top: 2.5rem; margin-top: 0.5rem;
+}
+.thesis-grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+.thesis-subcard {
+  background: rgba(255,255,255,0.03); border: 1px solid rgba(0,168,150,0.15);
+  border-radius: 12px; padding: 1.5rem;
+}
+.thesis-subcard-title { font-size: 0.85rem; font-weight: 600; text-transform: uppercase; color: var(--teal); margin-bottom: 0.8rem; letter-spacing: 0.05em; }
+.thesis-subcard ul { padding-left: 1.1rem; }
+.thesis-subcard li { font-size: 0.88rem; color: rgba(255,255,255,0.7); line-height: 1.65; margin-bottom: 0.5rem; }
+.thesis-subcard li strong { color: rgba(255,255,255,0.9); }
+
+/* ── PROJECTS GRID ─────────────────────────────────────────────────── */
+.projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 1.8rem; }
+.project-card {
+  background: var(--white); border: 1px solid var(--gray-lt);
+  border-radius: 14px; overflow: hidden;
+  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+}
+.project-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(11,31,58,0.12); border-color: var(--teal); }
+.card-header { height: 5px; }
+.card-body { padding: 1.6rem; }
+.card-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; }
+.card-tag {
+  font-size: 0.7rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+  background: rgba(0,168,150,0.08); color: var(--teal-dk); border-radius: 4px; padding: 0.2rem 0.6rem;
+}
+.card-tag.dark-tag { background: rgba(11,31,58,0.06); color: var(--navy); }
+.card-title { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: var(--navy); margin-bottom: 0.7rem; line-height: 1.3; }
+.card-desc { font-size: 0.9rem; color: var(--gray-mid); line-height: 1.6; margin-bottom: 1.2rem; }
+.card-metrics { display: flex; gap: 0.8rem; flex-wrap: wrap; border-top: 1px solid var(--gray-lt); padding-top: 1rem; }
+.metric { flex: 1; min-width: 80px; text-align: center; background: #F8FFFE; border: 1px solid rgba(0,168,150,0.15); border-radius: 8px; padding: 0.6rem 0.4rem; }
+.metric-val { font-family: 'DM Mono', monospace; font-size: 1.05rem; font-weight: 500; color: var(--teal); display: block; margin-bottom: 0.2rem; }
+.metric-val.amber { color: var(--amber); }
+.metric-val.red   { color: var(--red); }
+.metric-val.navy  { color: var(--navy); }
+.metric-lbl { font-size: 0.7rem; color: var(--gray-mid); line-height: 1.2; }
+
+/* ── SKILLS ────────────────────────────────────────────────────────── */
 .skills-section { background: var(--navy); padding: 6rem 5vw; }
 .skills-inner { max-width: 1200px; margin: 0 auto; }
 .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1.2rem; }
-.skill-group {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(0,168,150,0.15);
-  border-radius: 12px; padding: 1.4rem;
-  transition: border-color 0.2s;
-}
+.skill-group { background: rgba(255,255,255,0.04); border: 1px solid rgba(0,168,150,0.15); border-radius: 12px; padding: 1.4rem; transition: border-color 0.2s; }
 .skill-group:hover { border-color: var(--teal); }
 .skill-group-icon { font-size: 1.5rem; margin-bottom: 0.7rem; }
 .skill-group-title { font-size: 0.82rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--teal); margin-bottom: 0.8rem; }
-.skill-item { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; }
+.skill-item { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.55rem; }
 .skill-name { font-size: 0.88rem; color: rgba(255,255,255,0.8); }
 .skill-bar { width: 60px; height: 4px; background: rgba(255,255,255,0.1); border-radius: 2px; overflow: hidden; }
 .skill-fill { height: 100%; background: var(--teal); border-radius: 2px; }
 
-/* ── EXPERIENCE ──────────────────────────────────────────────────── */
+/* ── TIMELINE ──────────────────────────────────────────────────────── */
 .timeline { position: relative; padding-left: 2rem; }
-.timeline::before {
-  content: ''; position: absolute; left: 0.45rem; top: 0.5rem; bottom: 0;
-  width: 2px; background: linear-gradient(to bottom, var(--teal), transparent);
-}
+.timeline::before { content: ''; position: absolute; left: 0.45rem; top: 0.5rem; bottom: 0; width: 2px; background: linear-gradient(to bottom, var(--teal), transparent); }
 .tl-item { position: relative; margin-bottom: 2.5rem; }
-.tl-dot {
-  position: absolute; left: -2rem;
-  width: 14px; height: 14px;
-  background: var(--teal); border-radius: 50%;
-  border: 3px solid var(--cream);
-  top: 0.3rem;
-}
+.tl-dot { position: absolute; left: -2rem; width: 14px; height: 14px; background: var(--teal); border-radius: 50%; border: 3px solid var(--cream); top: 0.3rem; }
 .tl-date { font-size: 0.78rem; font-weight: 600; color: var(--teal); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 0.3rem; }
 .tl-role { font-size: 1.05rem; font-weight: 600; color: var(--navy); margin-bottom: 0.15rem; }
 .tl-org { font-size: 0.88rem; color: var(--gray-mid); margin-bottom: 0.6rem; }
 .tl-body { font-size: 0.9rem; color: var(--dark-txt); line-height: 1.65; }
 
-/* ── CONTACT ─────────────────────────────────────────────────────── */
-.contact-section {
-  background: var(--navy);
-  padding: 6rem 5vw;
-  text-align: center;
-}
+/* ── CONTACT ───────────────────────────────────────────────────────── */
+.contact-section { background: var(--navy); padding: 6rem 5vw; text-align: center; }
 .contact-inner { max-width: 700px; margin: 0 auto; }
-.contact-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 2.5rem; font-weight: 700; color: var(--white);
-  margin-bottom: 1rem;
-}
+.contact-title { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 700; color: var(--white); margin-bottom: 1rem; }
 .contact-sub { color: rgba(255,255,255,0.55); margin-bottom: 2.5rem; font-size: 1rem; line-height: 1.7; }
 .contact-links { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
 .contact-chip {
   display: inline-flex; align-items: center; gap: 0.6rem;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15);
   border-radius: 100px; padding: 0.7rem 1.4rem;
-  color: rgba(255,255,255,0.8); font-size: 0.88rem;
-  text-decoration: none;
+  color: rgba(255,255,255,0.8); font-size: 0.88rem; text-decoration: none;
   transition: all 0.2s;
 }
 .contact-chip:hover { background: var(--teal); border-color: var(--teal); color: var(--white); }
 
-footer {
-  background: #070F1C; color: rgba(255,255,255,0.3);
-  text-align: center; padding: 1.5rem;
-  font-size: 0.8rem;
-}
+footer { background: #070F1C; color: rgba(255,255,255,0.3); text-align: center; padding: 1.5rem; font-size: 0.8rem; }
 
-/* ── ANIMATIONS ──────────────────────────────────────────────────── */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(24px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-.reveal {
-  opacity: 0; transform: translateY(30px);
-  transition: opacity 0.55s ease, transform 0.55s ease;
-}
+/* ── ANIMATIONS ────────────────────────────────────────────────────── */
+@keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.55s ease, transform 0.55s ease; }
 .reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ── RESPONSIVE ────────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .hero, .thesis-inner, .value-top { grid-template-columns: 1fr; }
+  .hero-left { padding-right: 0; }
+  .thesis-extended { grid-column: span 1; }
+}
+@media (max-width: 600px) {
+  nav { gap: 1rem; }
+  nav a:not(.nav-cta) { display: none; }
+  .stats-grid { grid-template-columns: 1fr 1fr; }
+}
 </style>
 </head>
 <body>
@@ -505,7 +311,7 @@ footer {
     <a href="#thesis">Thesis</a>
     <a href="#skills">Skills</a>
     <a href="#background">Background</a>
-    <a href="#contact">Contact</a>
+    <a href="#contact" class="nav-cta">Contact</a>
   </nav>
 </header>
 
@@ -514,8 +320,8 @@ footer {
   <div class="grid-bg"></div>
   <div class="hero-left">
     <div class="eyebrow">Transport Modelling & Mobility Analytics</div>
-    <h1>Data-Driven<br><span class="accent">Transport</span><br>Modelling.</h1>
-    <p class="hero-desc">Amirhassan Darvishzade — MSc Mobility Engineering, Politecnico di Milano. Specialist in OD demand analysis, public transport network optimisation, big-data mobility flows, and equity-driven service planning.[cite: 1, 2]</p>
+    <h1>Data-Driven<br><span class="accent">Transport</span><br>Planning.</h1>
+    <p class="hero-desc">Amirhassan Darvishzade — MSc Mobility Engineering, Politecnico di Milano. Specialist in OD demand analysis, public transport network optimisation, GTFS data pipelines, and equity-driven service planning.</p>
     <div class="hero-cta">
       <a href="#projects" class="btn btn-primary">View Projects</a>
       <a href="mailto:amirhassan.darvishzade@mail.polimi.it" class="btn btn-outline">Get in Touch</a>
@@ -523,71 +329,90 @@ footer {
   </div>
   <div class="hero-right">
     <div class="stats-panel">
-      <div class="stats-title">Key Metrics</div>
+      <div class="stats-title">Key Results</div>
       <div class="stats-grid">
         <div class="stat-card">
           <div class="stat-val">3,000</div>
-          <div class="stat-label">OD Zones Processed<br>National mobile-device data[cite: 1, 2]</div>
+          <div class="stat-label">OD Zones Processed<br>National mobile-device data</div>
         </div>
         <div class="stat-card">
           <div class="stat-val amber">r=0.90</div>
-          <div class="stat-label">Model Validation<br>Pearson correlation vs official stats[cite: 1, 2]</div>
+          <div class="stat-label">Demand Model Validation<br>Pearson vs official statistics</div>
         </div>
         <div class="stat-card">
           <div class="stat-val red">1.89×</div>
-          <div class="stat-label">Holiday Burden Ratio<br>MSc Thesis — ATM Milan GTFS[cite: 2]</div>
+          <div class="stat-label">Holiday Social Burden<br>MSc Thesis — ATM Milan GTFS</div>
         </div>
         <div class="stat-card">
-          <div class="stat-val white">2,695</div>
-          <div class="stat-label">Analytical Stops Analysed<br>Holiday equity pipeline[cite: 2]</div>
+          <div class="stat-val white">28%</div>
+          <div class="stat-label">Load Factor Uplift<br>Bus network redesign</div>
         </div>
       </div>
       <div class="skill-pills">
-        <span class="pill">OpenPaths Cube</span>
         <span class="pill">PTV Visum</span>
-        <span class="pill">Python/pandas</span>
+        <span class="pill">Python / pandas</span>
         <span class="pill">GTFS</span>
-        <span class="pill">TomTom OD</span>
         <span class="pill">Power BI</span>
+        <span class="pill">QGIS</span>
+        <span class="pill">OpenPaths Cube</span>
       </div>
     </div>
   </div>
 </div>
 
-<!-- CITIEU MATCH BANNER -->
-<div class="match-banner">
-  <div class="match-inner">
-    <div>
-      <div class="match-label">Why CitiEU | CitiME</div>
-      <div class="match-title">Skills aligned<br>with your core<br>practice</div>
+<!-- VALUE PROPOSITION BANNER -->
+<div class="value-banner">
+  <div class="value-inner">
+    <div class="value-top">
+      <div>
+        <div class="value-label">What I bring</div>
+        <div class="value-title">From raw data<br>to transport<br>decisions.</div>
+      </div>
+      <div class="value-desc">
+        I work at the intersection of big-data demand analysis, network modelling, and transport equity — combining engineering rigour with practical, client-ready outputs. My projects span GTFS pipeline design, OD matrix processing from mobile-device data, PTV Visum network optimisation, and open-data equity frameworks. Every output is grounded in real constraints: budget-neutral solutions, validated demand models, quantified KPIs. I'm based in Milan, fluent in English and Italian, and graduating from Politecnico di Milano in October 2026 — available for transport planning and modelling roles immediately after.
+      </div>
     </div>
-    <div class="match-grid">
-      <div class="match-item">
-        <div class="match-icon">🗺️</div>
+    <div class="value-grid">
+      <div class="value-item">
+        <div class="value-icon">🗺️</div>
         <div>
-          <div class="match-item-title">OD Matrix & Demand Analysis</div>
-          <div class="match-item-sub">Processed 3,000-zone national OD data; validated against official stats ($4r=0.90$) — directly applicable to OpenPaths Cube model inputs[cite: 1, 2]</div>
+          <div class="value-item-title">OD Demand Analysis</div>
+          <div class="value-item-sub">Processed 3,000-zone national mobile-device OD data; validated tourism and commuting flows at Pearson r = 0.90 against official statistics</div>
         </div>
       </div>
-      <div class="match-item">
-        <div class="match-icon">🚌</div>
+      <div class="value-item">
+        <div class="value-icon">🚌</div>
         <div>
-          <div class="match-item-title">Network Optimisation</div>
-          <div class="match-item-sub">Redesigned 8-line bus + DRT network in PTV Visum; headway/timetable optimisation translates to Cube PT assignment workflows[cite: 1, 2]</div>
+          <div class="value-item-title">Network Optimisation</div>
+          <div class="value-item-sub">Redesigned 8–10 line bus and DRT network in PTV Visum — 28% load factor uplift, 7% OPEX reduction, budget-neutral across all scenarios</div>
         </div>
       </div>
-      <div class="match-item">
-        <div class="match-icon">📊</div>
+      <div class="value-item">
+        <div class="value-icon">📡</div>
         <div>
-          <div class="match-item-title">Big Data & TomTom Integration</div>
-          <div class="match-item-sub">Used mobile-device OD datasets (Teralytics-style) for demand estimation; familiar with aggregated probe-data pipelines[cite: 1, 2]</div>
+          <div class="value-item-title">GTFS Pipeline Engineering</div>
+          <div class="value-item-sub">Built custom GTFS temporal reconstruction for ATM Milan's additive-only calendar format — a reusable method applicable to any city's feed</div>
         </div>
       </div>
-      <div class="match-item">
-        <div class="match-icon">🇮🇹</div>
+      <div class="value-item">
+        <div class="value-icon">⚖️</div>
         <div>
-          <div class="match-item-title">Milan-Based, Italian Market</div>
-          <div class="match-item-sub">Based at PoliMi, Italian B1 & improving — directly aligned with CitiME Milan office at Paderno Dugnano[cite: 1, 2]</div>
+          <div class="value-item-title">Equity & Accessibility</div>
+          <div class="value-item-sub">Designed a Robin Hood reallocation model across 4,891 stops — improving Gini equity by 22.9% with zero additional operational cost to the operator</div>
+        </div>
+      </div>
+      <div class="value-item">
+        <div class="value-icon">📊</div>
+        <div>
+          <div class="value-item-title">Data Visualisation & BI</div>
+          <div class="value-item-sub">Power BI dashboards and QGIS maps for multi-stakeholder audiences; translating complex model outputs into clear decision-ready reports</div>
+        </div>
+      </div>
+      <div class="value-item">
+        <div class="value-icon">🇮🇹</div>
+        <div>
+          <div class="value-item-title">Milan-Based, Italian Market</div>
+          <div class="value-item-sub">Studying at PoliMi, Italian B1 and improving — familiar with ATM, ISTAT, and Italian urban planning data standards</div>
         </div>
       </div>
     </div>
@@ -598,99 +423,90 @@ footer {
 <section id="projects">
   <div class="section-tag">Portfolio</div>
   <div class="section-title">Transport Modelling Projects</div>
-  <p class="section-sub">Applied research and coursework across demand analysis, network optimisation, equity modelling, and financial feasibility.[cite: 1, 2]</p>
+  <p class="section-sub">Applied research across demand analysis, network optimisation, equity modelling, and financial feasibility.</p>
 
-  <!-- THESIS HIGHLIGHT -->
+  <!-- THESIS -->
   <div class="thesis-card reveal" id="thesis">
     <div class="thesis-inner">
       <div>
-        <div class="thesis-tag">MSc Thesis 2026 — Key Project</div>
+        <div class="thesis-tag">MSc Thesis 2025–2026 — In Progress</div>
         <div class="thesis-title">Holiday Transit Equity in Milan — An Open-Data Framework</div>
-        <p class="thesis-desc">A transferable, fully open-data framework quantifying the structural temporal blind spots in transit-equity standards. By parsing GTFS calendars, ISTAT census tracks, and OpenStreetMap geometries, this study implements a ceiling-bounded Robin Hood reallocation model to minimize vulnerability-weighted transit penalties with zero additional operational costs.[cite: 2]</p>
+        <p class="thesis-desc">A transferable, fully open-data pipeline quantifying how social vulnerability maps against public holiday service cuts across ATM Milan's network. Combines GTFS schedule data, ISTAT 2021 census demographics, and OpenStreetMap essential-service geometry to build a Holiday Need Index — then applies a ceiling-bounded Robin Hood reallocation model to reduce distributional inequity at zero additional cost to the operator.</p>
         <div class="thesis-flow">
-          <span class="flow-node">ATM GTFS Feeds</span>
+          <span class="flow-node">ATM GTFS 2026</span>
           <span class="flow-arrow">→</span>
           <span class="flow-node">ISTAT Census</span>
           <span class="flow-arrow">→</span>
           <span class="flow-node">OpenStreetMap</span>
           <span class="flow-arrow">→</span>
-          <span class="flow-node">Double-Exclusion Index</span>
+          <span class="flow-node">Holiday Need Index</span>
           <span class="flow-arrow">→</span>
-          <span class="flow-node">Ceiling Optimizer</span>
+          <span class="flow-node">Ceiling Optimiser</span>
         </div>
         <div class="skill-pills">
           <span class="pill">Python / pandas</span>
-          <span class="pill">GTFS Parsing</span>
-          <span class="pill">Spatial Buffers</span>
-          <span class="pill">Gini Optimization</span>
-          <span class="pill">2,695 Stops[cite: 2]</span>
+          <span class="pill">GTFS parsing</span>
+          <span class="pill">QGIS</span>
+          <span class="pill">Gini / Lorenz</span>
+          <span class="pill">Spatial buffers</span>
+          <span class="pill">4,891 stops</span>
         </div>
       </div>
       <div class="thesis-kpis">
         <div class="thesis-kpi">
           <span class="thesis-kpi-val" style="color:#00A896">1.89×</span>
-          <span class="thesis-kpi-lbl">Holiday Social Burden<br>vs Weekdays[cite: 2]</span>
+          <span class="thesis-kpi-lbl">Holiday social burden<br>vs weekday baseline</span>
         </div>
         <div class="thesis-kpi">
           <span class="thesis-kpi-val" style="color:#F4A300">22.9%</span>
-          <span class="thesis-kpi-lbl">Gini Improvement<br>Moderate Scenario[cite: 2]</span>
+          <span class="thesis-kpi-lbl">Gini improvement<br>moderate scenario</span>
         </div>
         <div class="thesis-kpi">
           <span class="thesis-kpi-val" style="color:#E63946">319</span>
-          <span class="thesis-kpi-lbl">Double-Excluded Stops<br>Mapped in Periphery[cite: 2]</span>
+          <span class="thesis-kpi-lbl">Double-exclusion stops<br>no service + no essential access</span>
         </div>
         <div class="thesis-kpi">
-          <span class="thesis-kpi-val" style="color:#fff">€0</span>
-          <span class="thesis-kpi-lbl">Additional Fleet Cost<br>Trips Conserved Exactly[cite: 2]</span>
+          <span class="thesis-kpi-val" style="color:#fff">44%</span>
+          <span class="thesis-kpi-lbl">Reallocation ceiling<br>operational efficiency limit</span>
         </div>
       </div>
 
-      <!-- Extended Thesis Details Inserted Safely via Slide Outlines -->
-      <div class="thesis-extended-content">
+      <!-- Extended details -->
+      <div class="thesis-extended">
         <div class="thesis-grid-3">
           <div class="thesis-subcard">
-            <div class="thesis-subcard-title">1. The 5-Phase Methodology[cite: 2]</div>
-            <div class="thesis-subcard-text">
-              <ul>
-                <li><strong>Vulnerability Index:</strong> Composite ratio derived from $V_i = x \cdot \text{elderly}_i + y \cdot \text{foreign}_i + (1-x-y) \cdot \text{single-household}_i$ anchoring demographic needs[cite: 2].</li>
-                <li><strong>Supply Burden:</strong> Quantifies headway metrics from trips-per-day over explicit day-types[cite: 2].</li>
-                <li><strong>Disaggregation:</strong> Resolves individual holiday profiles to parse structural reduction profiles[cite: 2].</li>
-                <li><strong>Essential Access:</strong> Validates polygon reachability boundaries (Pharmacy AND Supermarket AND Hospital)[cite: 2].</li>
-                <li><strong>Ceiling Optimization:</strong> Executes budget-neutral reallocation under operational floors[cite: 2].</li>
-              </ul>
-            </div>
+            <div class="thesis-subcard-title">Methodology</div>
+            <ul>
+              <li><strong>Vulnerability Index:</strong> Composite of elderly share, foreign resident share, and single-household density from ISTAT 2021 — anchors demographic need at stop level.</li>
+              <li><strong>Supply Burden:</strong> Headway metrics computed from GTFS trips-per-day, disaggregated by day type — weekday, Sunday, and individual public holidays.</li>
+              <li><strong>Essential Access:</strong> 500m walk-up buffers to pharmacies, supermarkets, and hospitals from OpenStreetMap, identifying stops with compounded service and access failure.</li>
+              <li><strong>Ceiling Optimiser:</strong> Budget-neutral Robin Hood reallocation under operational headway floors — efficiency caps at 44% donor reduction.</li>
+            </ul>
           </div>
           <div class="thesis-subcard">
-            <div class="thesis-subcard-title">2. Case Study Discoveries[cite: 2]</div>
-            <div class="thesis-subcard-text">
-              <ul>
-                <li><strong>Temporal Shifts:</strong> Median headways stretch from 10.1 min (weekdays) to 20.0 min (holidays), inducing a stark evening cliff collapse after 20:00 where 330 peripheral stops lose service[cite: 2].</li>
-                <li><strong>The Christmas Anomaly:</strong> Civil holidays remain strictly uniform ($\pm$0.7 min variance), but Christmas service drops by a critical 45%[cite: 2].</li>
-                <li><strong>Double Exclusion:</strong> 12.1% of municipal stops exhibit severe top-quartile service drops compounded by walk-up essential network failures[cite: 2].</li>
-              </ul>
-            </div>
+            <div class="thesis-subcard-title">Key Findings</div>
+            <ul>
+              <li><strong>Temporal pattern:</strong> Median headway stretches from 10.1 min (weekdays) to 20.0 min (holidays); 330 peripheral stops lose service entirely after 20:00.</li>
+              <li><strong>Christmas anomaly:</strong> Civil holidays show ±0.7 min headway variance, but Christmas service drops 45% — structurally different from all other holidays.</li>
+              <li><strong>Double exclusion:</strong> 319 stops (12.1% of network) combine top-quartile service collapse with no walkable essential services — concentrated in Quarto Oggiaro, Corvetto, Forlanini.</li>
+              <li><strong>Midday penalty:</strong> Widest equity gap occurs 10:00–16:00, not at rush hour — when vulnerable groups most need social and essential-service access.</li>
+            </ul>
           </div>
           <div class="thesis-subcard">
-            <div class="thesis-subcard-title">3. Optimization & Policy[cite: 2]</div>
-            <div class="thesis-subcard-text">
-              <ul>
-                <li><strong>Reallocation Mechanics:</strong> Adjusting 275 urban donor stops unlocks a substantial 17.8 min wait-time dividend for 320 recipient stops[cite: 2].</li>
-                <li><strong>Saturation Floor:</strong> Reallocation efficiency caps out at a 44% ceiling before recipients hit operational limits[cite: 2].</li>
-                <li><strong>Direct Policy Actions:</strong> 
-                  1. Enforce a 30-min headways KPI threshold for high-need zones; 
-                  2. Deploy the validated 20% redistribution scenario across 155 high-priority stops; 
-                  3. Transmit standalone Christmas schedule notices 2 weeks in advance[cite: 2].
-                </li>
-              </ul>
-            </div>
+            <div class="thesis-subcard-title">Policy Outputs</div>
+            <ul>
+              <li><strong>Reallocation:</strong> 275 donor stops → 320 recipient stops; each redistributed trip delivers 6× more wait-time reduction to high-need stops than it costs donors.</li>
+              <li><strong>Optimal threshold:</strong> 20% donor reduction maximises Gini improvement (22.9%) before diminishing returns set in at the 44% ceiling.</li>
+              <li><strong>Three recommendations:</strong> Enforce 30-min headway KPI floor for high-need zones; deploy 20% redistribution scenario across 155 priority stops; issue advance Christmas schedule notices 2 weeks prior.</li>
+              <li><strong>Replicability:</strong> Framework is fully open-data — transferable to any Italian city with GTFS + ISTAT access.</li>
+            </ul>
           </div>
         </div>
       </div>
-
     </div>
   </div>
 
-  <!-- Other projects grid -->
+  <!-- Projects grid -->
   <div class="projects-grid">
 
     <div class="project-card reveal">
@@ -699,14 +515,14 @@ footer {
         <div class="card-tags">
           <span class="card-tag">PTV Visum</span>
           <span class="card-tag">DRT</span>
-          <span class="card-tag citieu-tag">Cube-compatible</span>
+          <span class="card-tag dark-tag">Network Design</span>
         </div>
         <div class="card-title">Bus Network Optimisation + Demand-Responsive Transport</div>
-        <p class="card-desc">Redesigned 8–10 line urban bus network under strict fleet and vehicle-km constraints. Integrated DRT for low-demand zones, optimised timetables and headways across all service bands, and evaluated financial impact with full KPI reporting.[cite: 1]</p>
+        <p class="card-desc">Redesigned an 8–10 line urban bus and DRT network in PTV Visum under strict fleet and vehicle-km constraints. Optimised timetables and headways across all service bands, evaluated financial performance, and produced full KPI documentation.</p>
         <div class="card-metrics">
-          <div class="metric"><span class="metric-val">28%</span><span class="metric-lbl">Load factor uplift[cite: 1]</span></div>
-          <div class="metric"><span class="metric-val amber">-7%</span><span class="metric-lbl">OPEX/km reduction[cite: 1]</span></div>
-          <div class="metric"><span class="metric-val navy">+€390k</span><span class="metric-lbl">Annual income gain[cite: 1]</span></div>
+          <div class="metric"><span class="metric-val">28%</span><span class="metric-lbl">Load factor uplift</span></div>
+          <div class="metric"><span class="metric-val amber">-7%</span><span class="metric-lbl">OPEX/km</span></div>
+          <div class="metric"><span class="metric-val navy">+€390k</span><span class="metric-lbl">Annual income</span></div>
         </div>
       </div>
     </div>
@@ -717,14 +533,14 @@ footer {
         <div class="card-tags">
           <span class="card-tag">Python</span>
           <span class="card-tag">Power BI</span>
-          <span class="card-tag citieu-tag">TomTom OD data</span>
+          <span class="card-tag dark-tag">OD Analysis</span>
         </div>
         <div class="card-title">Lake Garda Mobility — Big-Data OD Demand Analysis</div>
-        <p class="card-desc">Processed national mobile-device OD data across 3,000 zones to quantify tourism and commuting flows on the Brescia–Verona corridor. Designed five seasonal "Treni del Lago" rail service concepts and evaluated a new station using k-means clustering.[cite: 1]</p>
+        <p class="card-desc">Processed national mobile-device OD data across 3,000 zones to quantify tourism and commuting flows on the Brescia–Verona corridor. Designed five seasonal rail service concepts and evaluated a new station using k-means spatial clustering.</p>
         <div class="card-metrics">
-          <div class="metric"><span class="metric-val">3,000</span><span class="metric-lbl">OD zones[cite: 1, 2]</span></div>
-          <div class="metric"><span class="metric-val amber">r=0.90</span><span class="metric-lbl">Validation[cite: 1, 2]</span></div>
-          <div class="metric"><span class="metric-val navy">30k</span><span class="metric-lbl">Daily demand[cite: 1]</span></div>
+          <div class="metric"><span class="metric-val">3,000</span><span class="metric-lbl">OD zones</span></div>
+          <div class="metric"><span class="metric-val amber">r=0.90</span><span class="metric-lbl">Validation</span></div>
+          <div class="metric"><span class="metric-val navy">30k</span><span class="metric-lbl">Daily demand</span></div>
         </div>
       </div>
     </div>
@@ -733,15 +549,15 @@ footer {
       <div class="card-header" style="background: linear-gradient(90deg, #E63946, #C0212D)"></div>
       <div class="card-body">
         <div class="card-tags">
-          <span class="card-tag">CO₂ Scenario</span>
-          <span class="card-tag">Sustainable Mobility</span>
+          <span class="card-tag">CO₂ Scenarios</span>
+          <span class="card-tag dark-tag">Sustainable Mobility</span>
         </div>
-        <div class="card-title">Milan Decarbonisation 2040 — Emission Scenario Modelling Study</div>
-        <p class="card-desc">Modelled Milan's transport emission trajectory under business-as-usual and intervention scenarios. Recommended Metro M6 extension to absorb modal shift while sustaining CO₂ reduction targets through 2040.[cite: 1]</p>
+        <div class="card-title">Milan Decarbonisation 2040 — Emission Scenario Modelling</div>
+        <p class="card-desc">Modelled Milan's transport emission trajectory under business-as-usual and intervention scenarios to 2040. Evaluated Metro M6 extension as the primary modal-shift lever for sustaining CO₂ reduction targets.</p>
         <div class="card-metrics">
-          <div class="metric"><span class="metric-val red">-50%</span><span class="metric-lbl">CO₂ target[cite: 1]</span></div>
-          <div class="metric"><span class="metric-val">2040</span><span class="metric-lbl">Horizon[cite: 1]</span></div>
-          <div class="metric"><span class="metric-val navy">M6</span><span class="metric-lbl">Extension study[cite: 1]</span></div>
+          <div class="metric"><span class="metric-val red">-50%</span><span class="metric-lbl">CO₂ target</span></div>
+          <div class="metric"><span class="metric-val">2040</span><span class="metric-lbl">Horizon</span></div>
+          <div class="metric"><span class="metric-val navy">M6</span><span class="metric-lbl">Extension study</span></div>
         </div>
       </div>
     </div>
@@ -751,15 +567,14 @@ footer {
       <div class="card-body">
         <div class="card-tags">
           <span class="card-tag">COMFAR III</span>
-          <span class="card-tag">Feasibility</span>
-          <span class="card-tag citieu-tag">Industrial</span>
+          <span class="card-tag dark-tag">Investment Feasibility</span>
         </div>
         <div class="card-title">Radial Tyre Factory — Full Financial Feasibility Study</div>
-        <p class="card-desc">Complete BSc thesis financial roadmap for a TBR/OTR radial tyre production facility. Built NPV/IRR models using COMFAR III, demand forecasts, and logistics flow analysis. Directly applicable to transport infrastructure investment appraisal.[cite: 1]</p>
+        <p class="card-desc">Complete financial feasibility roadmap for a TBR/OTR radial tyre production facility. Built NPV/IRR models using COMFAR III, incorporating demand forecasts, logistics flow analysis, and price-demand sensitivity scenarios.</p>
         <div class="card-metrics">
-          <div class="metric"><span class="metric-val amber">34.4%</span><span class="metric-lbl">IRR projected[cite: 1]</span></div>
-          <div class="metric"><span class="metric-val">€40M+</span><span class="metric-lbl">NPV[cite: 1]</span></div>
-          <div class="metric"><span class="metric-val navy">2yr</span><span class="metric-lbl">Break-even[cite: 1]</span></div>
+          <div class="metric"><span class="metric-val amber">34.4%</span><span class="metric-lbl">IRR</span></div>
+          <div class="metric"><span class="metric-val">€40M+</span><span class="metric-lbl">NPV</span></div>
+          <div class="metric"><span class="metric-val navy">2 yr</span><span class="metric-lbl">Break-even</span></div>
         </div>
       </div>
     </div>
@@ -777,27 +592,27 @@ footer {
         <div class="skill-group-icon">🚦</div>
         <div class="skill-group-title">Transport Modelling</div>
         <div class="skill-item"><span class="skill-name">PTV Visum</span><div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div></div>
-        <div class="skill-item"><span class="skill-name">DRT Optimisation</span><div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div></div>
-        <div class="skill-item"><span class="skill-name">GTFS Processing</span><div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">GTFS Processing</span><div class="skill-bar"><div class="skill-fill" style="width:92%"></div></div></div>
         <div class="skill-item"><span class="skill-name">OD Matrix Analysis</span><div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div></div>
-        <div class="skill-item"><span class="skill-name">OpenPaths Cube*</span><div class="skill-bar"><div class="skill-fill" style="width:30%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">DRT Optimisation</span><div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">OpenPaths Cube *</span><div class="skill-bar"><div class="skill-fill" style="width:30%"></div></div></div>
       </div>
       <div class="skill-group reveal">
         <div class="skill-group-icon">📊</div>
         <div class="skill-group-title">Data & Analytics</div>
         <div class="skill-item"><span class="skill-name">Python / pandas</span><div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div></div>
-        <div class="skill-item"><span class="skill-name">scikit-learn</span><div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">QGIS / geopandas</span><div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div></div>
         <div class="skill-item"><span class="skill-name">Power BI</span><div class="skill-bar"><div class="skill-fill" style="width:82%"></div></div></div>
         <div class="skill-item"><span class="skill-name">Excel / Power Query</span><div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div></div>
-        <div class="skill-item"><span class="skill-name">k-means clustering</span><div class="skill-bar"><div class="skill-fill" style="width:78%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">scikit-learn</span><div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div></div>
       </div>
       <div class="skill-group reveal">
         <div class="skill-group-icon">🏙️</div>
-        <div class="skill-group-title">Urban & PT Planning</div>
-        <div class="skill-item"><span class="skill-name">Headway design</span><div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div></div>
-        <div class="skill-item"><span class="skill-name">Accessibility analysis</span><div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div></div>
-        <div class="skill-item"><span class="skill-name">Equity modelling</span><div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div></div>
-        <div class="skill-item"><span class="skill-name">CO₂ scenarios</span><div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div></div>
+        <div class="skill-group-title">Planning & Equity</div>
+        <div class="skill-item"><span class="skill-name">Headway / timetable design</span><div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">Accessibility analysis</span><div class="skill-bar"><div class="skill-fill" style="width:82%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">Equity modelling (Gini)</span><div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">CO₂ scenario modelling</span><div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div></div>
       </div>
       <div class="skill-group reveal">
         <div class="skill-group-icon">💼</div>
@@ -808,7 +623,7 @@ footer {
         <div class="skill-item"><span class="skill-name">MS Project</span><div class="skill-bar"><div class="skill-fill" style="width:72%"></div></div></div>
       </div>
     </div>
-    <p style="margin-top:1.5rem; font-size:0.78rem; color:rgba(255,255,255,0.3)">* OpenPaths Cube — currently learning; familiar with Cube's network and PT modules via transport modelling coursework[cite: 1]</p>
+    <p style="margin-top:1.5rem; font-size:0.78rem; color:rgba(255,255,255,0.3)">* OpenPaths Cube — currently learning; familiar with network and PT assignment modules via transport modelling coursework</p>
   </div>
 </div>
 
@@ -816,28 +631,28 @@ footer {
 <section id="background" style="background: var(--cream);">
   <div class="section-tag">Background</div>
   <div class="section-title">Education & Experience</div>
-  <p class="section-sub">Engineering foundation from Tehran, applied transport expertise from Politecnico di Milano.[cite: 1]</p>
+  <p class="section-sub">Industrial engineering foundation from Tehran, applied transport expertise from Politecnico di Milano.</p>
   <div class="timeline">
     <div class="tl-item reveal">
       <div class="tl-dot"></div>
-      <div class="tl-date">Sep 2023 — Oct 2026 (expected)[cite: 1, 2]</div>
+      <div class="tl-date">Sep 2023 — Oct 2026 (expected)</div>
       <div class="tl-role">MSc Mobility Engineering</div>
       <div class="tl-org">Politecnico di Milano, Milan, Italy</div>
-      <p class="tl-body">Coursework in Transportation Planning, Data Science for Mobility, Mobility Infrastructures, and Sustainable Mobility. Thesis: Holiday Transit Equity in Milan — an open-data GTFS + ISTAT equity & ceiling reallocation pipeline.[cite: 1, 2]</p>
+      <p class="tl-body">Coursework in Transportation Planning, Data Science for Mobility, Mobility Infrastructures, and Sustainable Mobility. Thesis: Holiday Transit Equity in Milan — open-data GTFS + ISTAT equity framework with ceiling-bounded Robin Hood reallocation model.</p>
     </div>
     <div class="tl-item reveal">
       <div class="tl-dot"></div>
       <div class="tl-date">Jul 2021 — Sep 2021</div>
       <div class="tl-role">Investment Specialist Intern</div>
-      <div class="tl-org">Atieh Sepah Investment Company, Tehran</div>
-      <p class="tl-body">Built NPV/IRR feasibility models for tyre production lines; standardised Excel/Power Query appraisal templates adopted company-wide; conducted price, demand, and logistics sensitivity analyses.[cite: 1]</p>
+      <div class="tl-org">Atieh Sepah Investment Company, Tehran, Iran</div>
+      <p class="tl-body">Built NPV/IRR feasibility models for tyre production lines; standardised Excel/Power Query appraisal templates adopted company-wide; conducted price, demand, and logistics sensitivity analyses informing the firm's investment policy.</p>
     </div>
     <div class="tl-item reveal">
       <div class="tl-dot"></div>
       <div class="tl-date">Sep 2018 — Jul 2022</div>
       <div class="tl-role">BSc Industrial Engineering</div>
       <div class="tl-org">University of Tehran, Iran</div>
-      <p class="tl-body">Core focus on operations research, feasibility modelling, work measurement (MTM/MOST), and industrial systems design. Final thesis: Radial Tyre Factory financial feasibility (COMFAR III, NPV €40M+).[cite: 1]</p>
+      <p class="tl-body">Operations research, feasibility modelling, work measurement (MTM/MOST), and industrial systems design. Final thesis: Radial Tyre Factory full financial feasibility study (COMFAR III, NPV €40M+, IRR 34.4%).</p>
     </div>
   </div>
 </section>
@@ -846,10 +661,12 @@ footer {
 <div class="contact-section" id="contact">
   <div class="contact-inner">
     <div class="contact-title">Let's work together</div>
-    <p class="contact-sub">MSc Mobility Engineering candidate (PoliMi, October 2026), based in Milan. Open to transport modelling internships — particularly in OD analysis, PT network modelling, and OpenPaths Cube project support.[cite: 1, 2]</p>
+    <p class="contact-sub">MSc Mobility Engineering candidate at Politecnico di Milano (October 2026), based in Milan. Open to transport planning and modelling internships — OD demand analysis, PT network optimisation, GTFS pipelines, and transport equity.</p>
     <div class="contact-links">
       <a href="mailto:amirhassan.darvishzade@mail.polimi.it" class="contact-chip">📧 amirhassan.darvishzade@mail.polimi.it</a>
       <a href="tel:+393444924474" class="contact-chip">📞 +39 344 492 4474</a>
+      <a href="https://www.linkedin.com/in/amirhassan-darvishzade" target="_blank" class="contact-chip">💼 LinkedIn</a>
+      <a href="https://amir1999-d.github.io/Job_Portfolio/" target="_blank" class="contact-chip">🌐 This Portfolio</a>
     </div>
   </div>
 </div>
@@ -858,7 +675,7 @@ footer {
 
 <script>
 const observer = new IntersectionObserver(entries => {
-  entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('visible'); }});
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
 }, { threshold: 0.12 });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>

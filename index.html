@@ -315,17 +315,17 @@ section {
 .metric-val.navy { color: var(--navy); }
 .metric-lbl { font-size: 0.7rem; color: var(--gray-mid); line-height: 1.2; }
 
-/* ── THESIS HIGHLIGHT ────────────────────────────────────────────── */
+/* ── THESIS HIGHLIGHT EXTENSIONS ─────────────────────────────────── */
 .thesis-card {
   background: var(--navy);
   border-radius: 18px;
   overflow: hidden;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
   position: relative;
 }
 .thesis-card::before {
   content: '';
-  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  position: absolute; inset: 0;
   background-image: linear-gradient(rgba(0,168,150,0.04) 1px, transparent 1px),
                     linear-gradient(90deg, rgba(0,168,150,0.04) 1px, transparent 1px);
   background-size: 40px 40px;
@@ -334,8 +334,12 @@ section {
 .thesis-inner {
   position: relative; z-index: 1;
   display: grid; grid-template-columns: 3fr 2fr;
-  gap: 2rem;
-  padding: 2.5rem;
+  gap: 2.5rem;
+  padding: 3rem;
+}
+@media (max-width: 900px) {
+  .hero, .thesis-inner, .match-inner { grid-template-columns: 1fr; }
+  .hero-left { padding-right: 0; }
 }
 .thesis-tag {
   display: inline-block;
@@ -348,10 +352,42 @@ section {
 }
 .thesis-title {
   font-family: 'Playfair Display', serif;
-  font-size: 1.7rem; font-weight: 700; color: var(--white); line-height: 1.25;
-  margin-bottom: 0.9rem;
+  font-size: 2rem; font-weight: 700; color: var(--white); line-height: 1.25;
+  margin-bottom: 1rem;
 }
-.thesis-desc { font-size: 0.92rem; color: rgba(255,255,255,0.6); line-height: 1.7; margin-bottom: 1.5rem; }
+.thesis-desc { font-size: 0.95rem; color: rgba(255,255,255,0.65); line-height: 1.7; margin-bottom: 1.5rem; }
+
+.thesis-extended-content {
+  grid-column: span 2;
+  border-top: 1px solid rgba(0,168,150,0.2);
+  padding-top: 2.5rem;
+  margin-top: 1rem;
+}
+@media (max-width: 900px) { .thesis-extended-content { grid-column: span 1; } }
+
+.thesis-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+.thesis-subcard {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(0,168,150,0.15);
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+.thesis-subcard-title {
+  font-size: 0.9rem; font-weight: 600; text-transform: uppercase;
+  color: var(--teal); margin-bottom: 0.8rem; letter-spacing: 0.05em;
+}
+.thesis-subcard-text {
+  font-size: 0.88rem; color: rgba(255,255,255,0.7); line-height: 1.6;
+}
+.thesis-subcard-text li {
+  margin-left: 1.2rem; margin-bottom: 0.4rem;
+}
+
 .thesis-flow {
   display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.4rem;
 }
@@ -369,12 +405,12 @@ section {
 .thesis-kpi {
   background: rgba(255,255,255,0.05);
   border: 1px solid rgba(0,168,150,0.15);
-  border-radius: 10px; padding: 1rem;
+  border-radius: 10px; padding: 1.2rem 1rem;
   text-align: center;
 }
 .thesis-kpi-val {
   font-family: 'Playfair Display', serif;
-  font-size: 1.8rem; font-weight: 700;
+  font-size: 2rem; font-weight: 700;
   display: block; margin-bottom: 0.3rem;
 }
 .thesis-kpi-lbl { font-size: 0.75rem; color: rgba(255,255,255,0.45); line-height: 1.3; }
@@ -479,7 +515,7 @@ footer {
   <div class="hero-left">
     <div class="eyebrow">Transport Modelling & Mobility Analytics</div>
     <h1>Data-Driven<br><span class="accent">Transport</span><br>Modelling.</h1>
-    <p class="hero-desc">Amirhassan Darvishzade — MSc Mobility Engineering, Politecnico di Milano. Specialist in OD demand analysis, public transport network optimisation, big-data mobility flows, and equity-driven service planning.</p>
+    <p class="hero-desc">Amirhassan Darvishzade — MSc Mobility Engineering, Politecnico di Milano. Specialist in OD demand analysis, public transport network optimisation, big-data mobility flows, and equity-driven service planning.[cite: 1, 2]</p>
     <div class="hero-cta">
       <a href="#projects" class="btn btn-primary">View Projects</a>
       <a href="mailto:amirhassan.darvishzade@mail.polimi.it" class="btn btn-outline">Get in Touch</a>
@@ -491,19 +527,19 @@ footer {
       <div class="stats-grid">
         <div class="stat-card">
           <div class="stat-val">3,000</div>
-          <div class="stat-label">OD Zones Processed<br>National mobile-device data</div>
+          <div class="stat-label">OD Zones Processed<br>National mobile-device data[cite: 1, 2]</div>
         </div>
         <div class="stat-card">
           <div class="stat-val amber">r=0.90</div>
-          <div class="stat-label">Model Validation<br>Pearson correlation vs official stats</div>
+          <div class="stat-label">Model Validation<br>Pearson correlation vs official stats[cite: 1, 2]</div>
         </div>
         <div class="stat-card">
-          <div class="stat-val">1.70×</div>
-          <div class="stat-label">Holiday Burden Ratio<br>MSc thesis — ATM Milan GTFS 2026</div>
+          <div class="stat-val red">1.89×</div>
+          <div class="stat-label">Holiday Burden Ratio<br>MSc Thesis — ATM Milan GTFS[cite: 2]</div>
         </div>
         <div class="stat-card">
-          <div class="stat-val white">4,891</div>
-          <div class="stat-label">Stops Analysed<br>Holiday equity pipeline</div>
+          <div class="stat-val white">2,695</div>
+          <div class="stat-label">Analytical Stops Analysed<br>Holiday equity pipeline[cite: 2]</div>
         </div>
       </div>
       <div class="skill-pills">
@@ -530,28 +566,28 @@ footer {
         <div class="match-icon">🗺️</div>
         <div>
           <div class="match-item-title">OD Matrix & Demand Analysis</div>
-          <div class="match-item-sub">Processed 3,000-zone national OD data; validated against official stats (r=0.90) — directly applicable to OpenPaths Cube model inputs</div>
+          <div class="match-item-sub">Processed 3,000-zone national OD data; validated against official stats ($4r=0.90$) — directly applicable to OpenPaths Cube model inputs[cite: 1, 2]</div>
         </div>
       </div>
       <div class="match-item">
         <div class="match-icon">🚌</div>
         <div>
           <div class="match-item-title">Network Optimisation</div>
-          <div class="match-item-sub">Redesigned 8-line bus + DRT network in PTV Visum; headway/timetable optimisation translates to Cube PT assignment workflows</div>
+          <div class="match-item-sub">Redesigned 8-line bus + DRT network in PTV Visum; headway/timetable optimisation translates to Cube PT assignment workflows[cite: 1, 2]</div>
         </div>
       </div>
       <div class="match-item">
         <div class="match-icon">📊</div>
         <div>
           <div class="match-item-title">Big Data & TomTom Integration</div>
-          <div class="match-item-sub">Used mobile-device OD datasets (Teralytics-style) for demand estimation; familiar with aggregated probe-data pipelines</div>
+          <div class="match-item-sub">Used mobile-device OD datasets (Teralytics-style) for demand estimation; familiar with aggregated probe-data pipelines[cite: 1, 2]</div>
         </div>
       </div>
       <div class="match-item">
         <div class="match-icon">🇮🇹</div>
         <div>
           <div class="match-item-title">Milan-Based, Italian Market</div>
-          <div class="match-item-sub">Based at PoliMi, Italian B1 & improving — directly aligned with CitiME Milan office at Paderno Dugnano</div>
+          <div class="match-item-sub">Based at PoliMi, Italian B1 & improving — directly aligned with CitiME Milan office at Paderno Dugnano[cite: 1, 2]</div>
         </div>
       </div>
     </div>
@@ -562,50 +598,95 @@ footer {
 <section id="projects">
   <div class="section-tag">Portfolio</div>
   <div class="section-title">Transport Modelling Projects</div>
-  <p class="section-sub">Applied research and coursework across demand analysis, network optimisation, equity modelling, and financial feasibility.</p>
+  <p class="section-sub">Applied research and coursework across demand analysis, network optimisation, equity modelling, and financial feasibility.[cite: 1, 2]</p>
 
   <!-- THESIS HIGHLIGHT -->
   <div class="thesis-card reveal" id="thesis">
     <div class="thesis-inner">
       <div>
-        <div class="thesis-tag">MSc Thesis 2026 — In Progress</div>
+        <div class="thesis-tag">MSc Thesis 2026 — Key Project</div>
         <div class="thesis-title">Holiday Transit Equity in Milan — An Open-Data Framework</div>
-        <p class="thesis-desc">Full open-data pipeline quantifying how social vulnerability maps against holiday service cuts across ATM Milan's network. Combines GTFS schedule data, ISTAT census demographics, and a Robin Hood frequency reallocation model to identify and reduce equity gaps with zero additional operational cost.</p>
+        <p class="thesis-desc">A transferable, fully open-data framework quantifying the structural temporal blind spots in transit-equity standards. By parsing GTFS calendars, ISTAT census tracks, and OpenStreetMap geometries, this study implements a ceiling-bounded Robin Hood reallocation model to minimize vulnerability-weighted transit penalties with zero additional operational costs.[cite: 2]</p>
         <div class="thesis-flow">
-          <span class="flow-node">ATM GTFS 2026</span>
+          <span class="flow-node">ATM GTFS Feeds</span>
           <span class="flow-arrow">→</span>
           <span class="flow-node">ISTAT Census</span>
           <span class="flow-arrow">→</span>
-          <span class="flow-node">Holiday Need Index</span>
+          <span class="flow-node">OpenStreetMap</span>
           <span class="flow-arrow">→</span>
-          <span class="flow-node">Reallocation Model</span>
+          <span class="flow-node">Double-Exclusion Index</span>
+          <span class="flow-arrow">→</span>
+          <span class="flow-node">Ceiling Optimizer</span>
         </div>
         <div class="skill-pills">
           <span class="pill">Python / pandas</span>
-          <span class="pill">GTFS parsing</span>
-          <span class="pill">k-means clustering</span>
-          <span class="pill">Gini/Lorenz metrics</span>
-          <span class="pill">4,891 stops</span>
+          <span class="pill">GTFS Parsing</span>
+          <span class="pill">Spatial Buffers</span>
+          <span class="pill">Gini Optimization</span>
+          <span class="pill">2,695 Stops[cite: 2]</span>
         </div>
       </div>
       <div class="thesis-kpis">
         <div class="thesis-kpi">
-          <span class="thesis-kpi-val" style="color:#00A896">1.70×</span>
-          <span class="thesis-kpi-lbl">Holiday burden<br>vs weekday</span>
+          <span class="thesis-kpi-val" style="color:#00A896">1.89×</span>
+          <span class="thesis-kpi-lbl">Holiday Social Burden<br>vs Weekdays[cite: 2]</span>
         </div>
         <div class="thesis-kpi">
-          <span class="thesis-kpi-val" style="color:#F4A300">12.9%</span>
-          <span class="thesis-kpi-lbl">Gini improvement<br>moderate scenario</span>
+          <span class="thesis-kpi-val" style="color:#F4A300">22.9%</span>
+          <span class="thesis-kpi-lbl">Gini Improvement<br>Moderate Scenario[cite: 2]</span>
         </div>
         <div class="thesis-kpi">
-          <span class="thesis-kpi-val" style="color:#E63946">4,058</span>
-          <span class="thesis-kpi-lbl">GTFS calendar<br>entries processed</span>
+          <span class="thesis-kpi-val" style="color:#E63946">319</span>
+          <span class="thesis-kpi-lbl">Double-Excluded Stops<br>Mapped in Periphery[cite: 2]</span>
         </div>
         <div class="thesis-kpi">
           <span class="thesis-kpi-val" style="color:#fff">€0</span>
-          <span class="thesis-kpi-lbl">Additional cost<br>to ATM operator</span>
+          <span class="thesis-kpi-lbl">Additional Fleet Cost<br>Trips Conserved Exactly[cite: 2]</span>
         </div>
       </div>
+
+      <!-- Extended Thesis Details Inserted Safely via Slide Outlines -->
+      <div class="thesis-extended-content">
+        <div class="thesis-grid-3">
+          <div class="thesis-subcard">
+            <div class="thesis-subcard-title">1. The 5-Phase Methodology[cite: 2]</div>
+            <div class="thesis-subcard-text">
+              <ul>
+                <li><strong>Vulnerability Index:</strong> Composite ratio derived from $V_i = x \cdot \text{elderly}_i + y \cdot \text{foreign}_i + (1-x-y) \cdot \text{single-household}_i$ anchoring demographic needs[cite: 2].</li>
+                <li><strong>Supply Burden:</strong> Quantifies headway metrics from trips-per-day over explicit day-types[cite: 2].</li>
+                <li><strong>Disaggregation:</strong> Resolves individual holiday profiles to parse structural reduction profiles[cite: 2].</li>
+                <li><strong>Essential Access:</strong> Validates polygon reachability boundaries (Pharmacy AND Supermarket AND Hospital)[cite: 2].</li>
+                <li><strong>Ceiling Optimization:</strong> Executes budget-neutral reallocation under operational floors[cite: 2].</li>
+              </ul>
+            </div>
+          </div>
+          <div class="thesis-subcard">
+            <div class="thesis-subcard-title">2. Case Study Discoveries[cite: 2]</div>
+            <div class="thesis-subcard-text">
+              <ul>
+                <li><strong>Temporal Shifts:</strong> Median headways stretch from 10.1 min (weekdays) to 20.0 min (holidays), inducing a stark evening cliff collapse after 20:00 where 330 peripheral stops lose service[cite: 2].</li>
+                <li><strong>The Christmas Anomaly:</strong> Civil holidays remain strictly uniform ($\pm$0.7 min variance), but Christmas service drops by a critical 45%[cite: 2].</li>
+                <li><strong>Double Exclusion:</strong> 12.1% of municipal stops exhibit severe top-quartile service drops compounded by walk-up essential network failures[cite: 2].</li>
+              </ul>
+            </div>
+          </div>
+          <div class="thesis-subcard">
+            <div class="thesis-subcard-title">3. Optimization & Policy[cite: 2]</div>
+            <div class="thesis-subcard-text">
+              <ul>
+                <li><strong>Reallocation Mechanics:</strong> Adjusting 275 urban donor stops unlocks a substantial 17.8 min wait-time dividend for 320 recipient stops[cite: 2].</li>
+                <li><strong>Saturation Floor:</strong> Reallocation efficiency caps out at a 44% ceiling before recipients hit operational limits[cite: 2].</li>
+                <li><strong>Direct Policy Actions:</strong> 
+                  1. Enforce a 30-min headways KPI threshold for high-need zones; 
+                  2. Deploy the validated 20% redistribution scenario across 155 high-priority stops; 
+                  3. Transmit standalone Christmas schedule notices 2 weeks in advance[cite: 2].
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 
@@ -621,11 +702,11 @@ footer {
           <span class="card-tag citieu-tag">Cube-compatible</span>
         </div>
         <div class="card-title">Bus Network Optimisation + Demand-Responsive Transport</div>
-        <p class="card-desc">Redesigned 8–10 line urban bus network under strict fleet and vehicle-km constraints. Integrated DRT for low-demand zones, optimised timetables and headways across all service bands, and evaluated financial impact with full KPI reporting.</p>
+        <p class="card-desc">Redesigned 8–10 line urban bus network under strict fleet and vehicle-km constraints. Integrated DRT for low-demand zones, optimised timetables and headways across all service bands, and evaluated financial impact with full KPI reporting.[cite: 1]</p>
         <div class="card-metrics">
-          <div class="metric"><span class="metric-val">28%</span><span class="metric-lbl">Load factor uplift</span></div>
-          <div class="metric"><span class="metric-val amber">-7%</span><span class="metric-lbl">OPEX/km reduction</span></div>
-          <div class="metric"><span class="metric-val navy">+€390k</span><span class="metric-lbl">Annual income gain</span></div>
+          <div class="metric"><span class="metric-val">28%</span><span class="metric-lbl">Load factor uplift[cite: 1]</span></div>
+          <div class="metric"><span class="metric-val amber">-7%</span><span class="metric-lbl">OPEX/km reduction[cite: 1]</span></div>
+          <div class="metric"><span class="metric-val navy">+€390k</span><span class="metric-lbl">Annual income gain[cite: 1]</span></div>
         </div>
       </div>
     </div>
@@ -639,11 +720,11 @@ footer {
           <span class="card-tag citieu-tag">TomTom OD data</span>
         </div>
         <div class="card-title">Lake Garda Mobility — Big-Data OD Demand Analysis</div>
-        <p class="card-desc">Processed national mobile-device OD data across 3,000 zones to quantify tourism and commuting flows on the Brescia–Verona corridor. Designed five seasonal "Treni del Lago" rail service concepts and evaluated a new station using k-means clustering.</p>
+        <p class="card-desc">Processed national mobile-device OD data across 3,000 zones to quantify tourism and commuting flows on the Brescia–Verona corridor. Designed five seasonal "Treni del Lago" rail service concepts and evaluated a new station using k-means clustering.[cite: 1]</p>
         <div class="card-metrics">
-          <div class="metric"><span class="metric-val">3,000</span><span class="metric-lbl">OD zones</span></div>
-          <div class="metric"><span class="metric-val amber">r=0.90</span><span class="metric-lbl">Validation</span></div>
-          <div class="metric"><span class="metric-val navy">30k</span><span class="metric-lbl">Daily demand</span></div>
+          <div class="metric"><span class="metric-val">3,000</span><span class="metric-lbl">OD zones[cite: 1, 2]</span></div>
+          <div class="metric"><span class="metric-val amber">r=0.90</span><span class="metric-lbl">Validation[cite: 1, 2]</span></div>
+          <div class="metric"><span class="metric-val navy">30k</span><span class="metric-lbl">Daily demand[cite: 1]</span></div>
         </div>
       </div>
     </div>
@@ -655,12 +736,12 @@ footer {
           <span class="card-tag">CO₂ Scenario</span>
           <span class="card-tag">Sustainable Mobility</span>
         </div>
-        <div class="card-title">Milan Decarbonisation 2040 — Emission Scenario Modelling</div>
-        <p class="card-desc">Modelled Milan's transport emission trajectory under business-as-usual and intervention scenarios. Recommended Metro M6 extension to absorb modal shift while sustaining CO₂ reduction targets through 2040.</p>
+        <div class="card-title">Milan Decarbonisation 2040 — Emission Scenario Modelling Study</div>
+        <p class="card-desc">Modelled Milan's transport emission trajectory under business-as-usual and intervention scenarios. Recommended Metro M6 extension to absorb modal shift while sustaining CO₂ reduction targets through 2040.[cite: 1]</p>
         <div class="card-metrics">
-          <div class="metric"><span class="metric-val red">-50%</span><span class="metric-lbl">CO₂ target</span></div>
-          <div class="metric"><span class="metric-val">2040</span><span class="metric-lbl">Horizon</span></div>
-          <div class="metric"><span class="metric-val navy">M6</span><span class="metric-lbl">Extension study</span></div>
+          <div class="metric"><span class="metric-val red">-50%</span><span class="metric-lbl">CO₂ target[cite: 1]</span></div>
+          <div class="metric"><span class="metric-val">2040</span><span class="metric-lbl">Horizon[cite: 1]</span></div>
+          <div class="metric"><span class="metric-val navy">M6</span><span class="metric-lbl">Extension study[cite: 1]</span></div>
         </div>
       </div>
     </div>
@@ -674,11 +755,11 @@ footer {
           <span class="card-tag citieu-tag">Industrial</span>
         </div>
         <div class="card-title">Radial Tyre Factory — Full Financial Feasibility Study</div>
-        <p class="card-desc">Complete BSc thesis financial roadmap for a TBR/OTR radial tyre production facility. Built NPV/IRR models using COMFAR III, demand forecasts, and logistics flow analysis. Directly applicable to transport infrastructure investment appraisal.</p>
+        <p class="card-desc">Complete BSc thesis financial roadmap for a TBR/OTR radial tyre production facility. Built NPV/IRR models using COMFAR III, demand forecasts, and logistics flow analysis. Directly applicable to transport infrastructure investment appraisal.[cite: 1]</p>
         <div class="card-metrics">
-          <div class="metric"><span class="metric-val amber">34.4%</span><span class="metric-lbl">IRR projected</span></div>
-          <div class="metric"><span class="metric-val">€40M+</span><span class="metric-lbl">NPV</span></div>
-          <div class="metric"><span class="metric-val navy">2yr</span><span class="metric-lbl">Break-even</span></div>
+          <div class="metric"><span class="metric-val amber">34.4%</span><span class="metric-lbl">IRR projected[cite: 1]</span></div>
+          <div class="metric"><span class="metric-val">€40M+</span><span class="metric-lbl">NPV[cite: 1]</span></div>
+          <div class="metric"><span class="metric-val navy">2yr</span><span class="metric-lbl">Break-even[cite: 1]</span></div>
         </div>
       </div>
     </div>
@@ -727,7 +808,7 @@ footer {
         <div class="skill-item"><span class="skill-name">MS Project</span><div class="skill-bar"><div class="skill-fill" style="width:72%"></div></div></div>
       </div>
     </div>
-    <p style="margin-top:1.5rem; font-size:0.78rem; color:rgba(255,255,255,0.3)">* OpenPaths Cube — currently learning; familiar with Cube's network and PT modules via transport modelling coursework</p>
+    <p style="margin-top:1.5rem; font-size:0.78rem; color:rgba(255,255,255,0.3)">* OpenPaths Cube — currently learning; familiar with Cube's network and PT modules via transport modelling coursework[cite: 1]</p>
   </div>
 </div>
 
@@ -735,28 +816,28 @@ footer {
 <section id="background" style="background: var(--cream);">
   <div class="section-tag">Background</div>
   <div class="section-title">Education & Experience</div>
-  <p class="section-sub">Engineering foundation from Tehran, applied transport expertise from Politecnico di Milano.</p>
+  <p class="section-sub">Engineering foundation from Tehran, applied transport expertise from Politecnico di Milano.[cite: 1]</p>
   <div class="timeline">
     <div class="tl-item reveal">
       <div class="tl-dot"></div>
-      <div class="tl-date">Sep 2023 — Jul 2026 (expected)</div>
+      <div class="tl-date">Sep 2023 — Oct 2026 (expected)[cite: 1, 2]</div>
       <div class="tl-role">MSc Mobility Engineering</div>
       <div class="tl-org">Politecnico di Milano, Milan, Italy</div>
-      <p class="tl-body">Coursework in Transportation Planning, Data Science for Mobility, Mobility Infrastructures, and Sustainable Mobility. Thesis: Holiday Transit Equity in Milan — an open-data GTFS + ISTAT equity pipeline.</p>
+      <p class="tl-body">Coursework in Transportation Planning, Data Science for Mobility, Mobility Infrastructures, and Sustainable Mobility. Thesis: Holiday Transit Equity in Milan — an open-data GTFS + ISTAT equity & ceiling reallocation pipeline.[cite: 1, 2]</p>
     </div>
     <div class="tl-item reveal">
       <div class="tl-dot"></div>
       <div class="tl-date">Jul 2021 — Sep 2021</div>
       <div class="tl-role">Investment Specialist Intern</div>
       <div class="tl-org">Atieh Sepah Investment Company, Tehran</div>
-      <p class="tl-body">Built NPV/IRR feasibility models for tyre production lines; standardised Excel/Power Query appraisal templates adopted company-wide; conducted price, demand, and logistics sensitivity analyses.</p>
+      <p class="tl-body">Built NPV/IRR feasibility models for tyre production lines; standardised Excel/Power Query appraisal templates adopted company-wide; conducted price, demand, and logistics sensitivity analyses.[cite: 1]</p>
     </div>
     <div class="tl-item reveal">
       <div class="tl-dot"></div>
       <div class="tl-date">Sep 2018 — Jul 2022</div>
       <div class="tl-role">BSc Industrial Engineering</div>
       <div class="tl-org">University of Tehran, Iran</div>
-      <p class="tl-body">Core focus on operations research, feasibility modelling, work measurement (MTM/MOST), and industrial systems design. Final thesis: Radial Tyre Factory financial feasibility (COMFAR III, NPV €40M+).</p>
+      <p class="tl-body">Core focus on operations research, feasibility modelling, work measurement (MTM/MOST), and industrial systems design. Final thesis: Radial Tyre Factory financial feasibility (COMFAR III, NPV €40M+).[cite: 1]</p>
     </div>
   </div>
 </section>
@@ -765,10 +846,11 @@ footer {
 <div class="contact-section" id="contact">
   <div class="contact-inner">
     <div class="contact-title">Let's work together</div>
-    <p class="contact-sub">MSc Mobility Engineering candidate (PoliMi, July 2026), based in Milan. Open to transport modelling internships — particularly in OD analysis, PT network modelling, and OpenPaths Cube project support.</p>
+    <p class="contact-sub">MSc Mobility Engineering candidate (PoliMi, October 2026), based in Milan. Open to transport modelling internships — particularly in OD analysis, PT network modelling, and OpenPaths Cube project support.[cite: 1, 2]</p>
     <div class="contact-links">
       <a href="mailto:amirhassan.darvishzade@mail.polimi.it" class="contact-chip">📧 amirhassan.darvishzade@mail.polimi.it</a>
       <a href="tel:+393444924474" class="contact-chip">📞 +39 344 492 4474</a>
+    </div>
   </div>
 </div>
 

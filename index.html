@@ -20,11 +20,11 @@
   --gray-mid: #7A8A9A;
   --dark-txt: #1F2937;
 }
-
+ 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--dark-txt); overflow-x: hidden; }
-
+ 
 /* ── HEADER ────────────────────────────────────────────────────────── */
 header {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
@@ -45,7 +45,7 @@ nav a:hover { color: var(--teal); }
   transition: background 0.2s !important;
 }
 .nav-cta:hover { background: var(--teal-dk) !important; color: var(--white) !important; }
-
+ 
 /* ── HERO ──────────────────────────────────────────────────────────── */
 .hero {
   min-height: 100vh; background: var(--navy);
@@ -98,7 +98,7 @@ h1 .accent { color: var(--teal); }
 .btn-primary:hover { background: var(--teal-dk); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,168,150,0.35); }
 .btn-outline { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,0.3); }
 .btn-outline:hover { border-color: var(--teal); color: var(--teal); transform: translateY(-2px); }
-
+ 
 /* Hero right */
 .hero-right { position: relative; z-index: 2; animation: fadeUp 0.6s 0.4s ease both; }
 .stats-panel {
@@ -126,7 +126,7 @@ h1 .accent { color: var(--teal); }
   border-radius: 100px; padding: 0.3rem 0.9rem;
   font-size: 0.78rem; font-weight: 500; color: var(--teal); font-family: 'DM Mono', monospace;
 }
-
+ 
 /* ── VALUE PROPOSITION BANNER ──────────────────────────────────────── */
 .value-banner {
   background: linear-gradient(135deg, var(--navy) 0%, #0a2540 100%);
@@ -152,7 +152,7 @@ h1 .accent { color: var(--teal); }
 .value-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 0.1rem; }
 .value-item-title { font-size: 0.88rem; font-weight: 600; color: var(--white); margin-bottom: 0.3rem; }
 .value-item-sub { font-size: 0.78rem; color: rgba(255,255,255,0.5); line-height: 1.5; }
-
+ 
 /* ── SECTION WRAPPER ───────────────────────────────────────────────── */
 section { padding: 6rem 5vw; max-width: 1200px; margin: 0 auto; }
 .section-tag {
@@ -163,7 +163,7 @@ section { padding: 6rem 5vw; max-width: 1200px; margin: 0 auto; }
 }
 .section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 700; color: var(--navy); margin-bottom: 0.6rem; }
 .section-sub { font-size: 1rem; color: var(--gray-mid); margin-bottom: 3rem; max-width: 60ch; }
-
+ 
 /* ── THESIS HIGHLIGHT ──────────────────────────────────────────────── */
 .thesis-card {
   background: var(--navy); border-radius: 18px;
@@ -200,7 +200,7 @@ section { padding: 6rem 5vw; max-width: 1200px; margin: 0 auto; }
 }
 .thesis-kpi-val { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; display: block; margin-bottom: 0.3rem; }
 .thesis-kpi-lbl { font-size: 0.75rem; color: rgba(255,255,255,0.45); line-height: 1.3; }
-
+ 
 /* Extended thesis content */
 .thesis-extended {
   grid-column: span 2;
@@ -216,7 +216,7 @@ section { padding: 6rem 5vw; max-width: 1200px; margin: 0 auto; }
 .thesis-subcard ul { padding-left: 1.1rem; }
 .thesis-subcard li { font-size: 0.88rem; color: rgba(255,255,255,0.7); line-height: 1.65; margin-bottom: 0.5rem; }
 .thesis-subcard li strong { color: rgba(255,255,255,0.9); }
-
+ 
 /* ── PROJECTS GRID ─────────────────────────────────────────────────── */
 .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 1.8rem; }
 .project-card {
@@ -242,7 +242,7 @@ section { padding: 6rem 5vw; max-width: 1200px; margin: 0 auto; }
 .metric-val.red   { color: var(--red); }
 .metric-val.navy  { color: var(--navy); }
 .metric-lbl { font-size: 0.7rem; color: var(--gray-mid); line-height: 1.2; }
-
+ 
 /* ── SKILLS ────────────────────────────────────────────────────────── */
 .skills-section { background: var(--navy); padding: 6rem 5vw; }
 .skills-inner { max-width: 1200px; margin: 0 auto; }
@@ -255,7 +255,7 @@ section { padding: 6rem 5vw; max-width: 1200px; margin: 0 auto; }
 .skill-name { font-size: 0.88rem; color: rgba(255,255,255,0.8); }
 .skill-bar { width: 60px; height: 4px; background: rgba(255,255,255,0.1); border-radius: 2px; overflow: hidden; }
 .skill-fill { height: 100%; background: var(--teal); border-radius: 2px; }
-
+ 
 /* ── TIMELINE ──────────────────────────────────────────────────────── */
 .timeline { position: relative; padding-left: 2rem; }
 .timeline::before { content: ''; position: absolute; left: 0.45rem; top: 0.5rem; bottom: 0; width: 2px; background: linear-gradient(to bottom, var(--teal), transparent); }
@@ -265,7 +265,7 @@ section { padding: 6rem 5vw; max-width: 1200px; margin: 0 auto; }
 .tl-role { font-size: 1.05rem; font-weight: 600; color: var(--navy); margin-bottom: 0.15rem; }
 .tl-org { font-size: 0.88rem; color: var(--gray-mid); margin-bottom: 0.6rem; }
 .tl-body { font-size: 0.9rem; color: var(--dark-txt); line-height: 1.65; }
-
+ 
 /* ── CONTACT ───────────────────────────────────────────────────────── */
 .contact-section { background: var(--navy); padding: 6rem 5vw; text-align: center; }
 .contact-inner { max-width: 700px; margin: 0 auto; }
@@ -280,14 +280,14 @@ section { padding: 6rem 5vw; max-width: 1200px; margin: 0 auto; }
   transition: all 0.2s;
 }
 .contact-chip:hover { background: var(--teal); border-color: var(--teal); color: var(--white); }
-
+ 
 footer { background: #070F1C; color: rgba(255,255,255,0.3); text-align: center; padding: 1.5rem; font-size: 0.8rem; }
-
+ 
 /* ── ANIMATIONS ────────────────────────────────────────────────────── */
 @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
 .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.55s ease, transform 0.55s ease; }
 .reveal.visible { opacity: 1; transform: translateY(0); }
-
+ 
 /* ── RESPONSIVE ────────────────────────────────────────────────────── */
 @media (max-width: 900px) {
   .hero, .thesis-inner, .value-top { grid-template-columns: 1fr; }
@@ -302,7 +302,7 @@ footer { background: #070F1C; color: rgba(255,255,255,0.3); text-align: center; 
 </style>
 </head>
 <body>
-
+ 
 <!-- HEADER -->
 <header>
   <div class="logo">AD<span>.</span></div>
@@ -314,7 +314,7 @@ footer { background: #070F1C; color: rgba(255,255,255,0.3); text-align: center; 
     <a href="#contact" class="nav-cta">Contact</a>
   </nav>
 </header>
-
+ 
 <!-- HERO -->
 <div class="hero">
   <div class="grid-bg"></div>
@@ -359,7 +359,7 @@ footer { background: #070F1C; color: rgba(255,255,255,0.3); text-align: center; 
     </div>
   </div>
 </div>
-
+ 
 <!-- VALUE PROPOSITION BANNER -->
 <div class="value-banner">
   <div class="value-inner">
@@ -418,13 +418,13 @@ footer { background: #070F1C; color: rgba(255,255,255,0.3); text-align: center; 
     </div>
   </div>
 </div>
-
+ 
 <!-- PROJECTS -->
 <section id="projects">
   <div class="section-tag">Portfolio</div>
   <div class="section-title">Transport Modelling Projects</div>
   <p class="section-sub">Applied research across demand analysis, network optimisation, equity modelling, and financial feasibility.</p>
-
+ 
   <!-- THESIS -->
   <div class="thesis-card reveal" id="thesis">
     <div class="thesis-inner">
@@ -470,7 +470,7 @@ footer { background: #070F1C; color: rgba(255,255,255,0.3); text-align: center; 
           <span class="thesis-kpi-lbl">Reallocation ceiling<br>operational efficiency limit</span>
         </div>
       </div>
-
+ 
       <!-- Extended details -->
       <div class="thesis-extended">
         <div class="thesis-grid-3">
@@ -505,10 +505,10 @@ footer { background: #070F1C; color: rgba(255,255,255,0.3); text-align: center; 
       </div>
     </div>
   </div>
-
+ 
   <!-- Projects grid -->
   <div class="projects-grid">
-
+ 
     <div class="project-card reveal">
       <div class="card-header" style="background: linear-gradient(90deg, #00A896, #007A6E)"></div>
       <div class="card-body">
@@ -526,7 +526,7 @@ footer { background: #070F1C; color: rgba(255,255,255,0.3); text-align: center; 
         </div>
       </div>
     </div>
-
+ 
     <div class="project-card reveal">
       <div class="card-header" style="background: linear-gradient(90deg, #F4A300, #D4870A)"></div>
       <div class="card-body">
@@ -544,7 +544,7 @@ footer { background: #070F1C; color: rgba(255,255,255,0.3); text-align: center; 
         </div>
       </div>
     </div>
-
+ 
     <div class="project-card reveal">
       <div class="card-header" style="background: linear-gradient(90deg, #E63946, #C0212D)"></div>
       <div class="card-body">
@@ -561,7 +561,7 @@ footer { background: #070F1C; color: rgba(255,255,255,0.3); text-align: center; 
         </div>
       </div>
     </div>
-
+ 
     <div class="project-card reveal">
       <div class="card-header" style="background: linear-gradient(90deg, #0B1F3A, #1A3A5C)"></div>
       <div class="card-body">
@@ -578,10 +578,10 @@ footer { background: #070F1C; color: rgba(255,255,255,0.3); text-align: center; 
         </div>
       </div>
     </div>
-
+ 
   </div>
 </section>
-
+ 
 <!-- SKILLS -->
 <div class="skills-section" id="skills">
   <div class="skills-inner">
@@ -626,7 +626,7 @@ footer { background: #070F1C; color: rgba(255,255,255,0.3); text-align: center; 
     <p style="margin-top:1.5rem; font-size:0.78rem; color:rgba(255,255,255,0.3)">* OpenPaths Cube — currently learning; familiar with network and PT assignment modules via transport modelling coursework</p>
   </div>
 </div>
-
+ 
 <!-- BACKGROUND -->
 <section id="background" style="background: var(--cream);">
   <div class="section-tag">Background</div>
@@ -656,7 +656,7 @@ footer { background: #070F1C; color: rgba(255,255,255,0.3); text-align: center; 
     </div>
   </div>
 </section>
-
+ 
 <!-- CONTACT -->
 <div class="contact-section" id="contact">
   <div class="contact-inner">
@@ -670,9 +670,9 @@ footer { background: #070F1C; color: rgba(255,255,255,0.3); text-align: center; 
     </div>
   </div>
 </div>
-
+ 
 <footer>© 2026 Amirhassan Darvishzade · Milan, Italy · MSc Mobility Engineering, Politecnico di Milano</footer>
-
+ 
 <script>
 const observer = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });

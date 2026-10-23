@@ -4,11 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#162a30">
-  <meta name="description" content="Amirhassan Darvishzade — mobility engineering research and transport analytics. A five-phase open-data framework for holiday transit equity, applied to Milan and tested against depot constraints.">
+  <meta name="description" content="Amirhassan Darvishzade, MSc Mobility Engineering (Politecnico di Milano, 2026). Research on public transport equity: an open-data framework for holiday transit equity, applied to Milan and tested against operator depot constraints.">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Amirhassan Darvishzade | Mobility research & transport analytics">
-  <meta property="og:description" content="From reproducible transit equity methods to operationally bounded service design. Research and technical projects by Amirhassan Darvishzade.">
-  <title>Amirhassan Darvishzade | Mobility research & transport analytics</title>
+  <meta property="og:title" content="Amirhassan Darvishzade | Transport equity research">
+  <meta property="og:description" content="An open-data framework for holiday transit equity, applied to Milan and bounded by operator depot constraints. Research profile for doctoral applications.">
+  <meta property="og:url" content="https://amir1999-d.github.io/Job_Portfolio/research.html">
+  <meta property="og:image" content="https://amir1999-d.github.io/Job_Portfolio/assets/portrait.jpg">
+  <title>Amirhassan Darvishzade | Transport equity research</title>
   <style>
     :root {
       color-scheme: light;
@@ -51,7 +53,7 @@
     .brand-mark { width: 35px; height: 35px; background: var(--ink); color: var(--paper); display: grid; place-items: center; font-family: Georgia, serif; font-size: 1rem; font-weight: 700; border-radius: 50%; }
     .site-nav { display: flex; align-items: center; gap: clamp(.8rem, 2vw, 2rem); }
     .site-nav a { text-decoration: none; font-size: .85rem; font-weight: 650; }
-    .site-nav a:hover, .text-link:hover { color: var(--copper); }
+    .site-nav a:hover { color: var(--copper); }
     .nav-contact { display: inline-block; border: 1px solid var(--ink); padding: .52rem .85rem; border-radius: 2px; }
     .hero { background: var(--ink); color: var(--surface); position: relative; overflow: hidden; }
     .hero::before { content: ""; position: absolute; inset: 0 0 0 38%; opacity: .23; background-image: linear-gradient(#7f9c9829 1px, transparent 1px), linear-gradient(90deg, #7f9c9829 1px, transparent 1px); background-size: 54px 54px; transform: skewX(-12deg); }
@@ -87,6 +89,9 @@
     .research-copy strong { color: var(--ink); }
     .research-tag { font-size: .75rem; letter-spacing: .13em; text-transform: uppercase; font-weight: 800; color: var(--copper); }
     .research-title { margin-top: 1rem; font-size: clamp(2.3rem, 3.9vw, 4.2rem); }
+    .rq-list { margin: 1.4rem 0 0; padding: 0; list-style: none; display: grid; gap: .6rem; }
+    .rq-list li { background: var(--surface); border-left: 3px solid var(--copper); padding: .75rem 1rem; font-size: .92rem; color: var(--ink); }
+    .rq-list li b { color: var(--copper); margin-right: .35rem; }
     .research-meta { border-top: 1px solid var(--line); margin-top: 2.1rem; padding-top: 1.25rem; font-size: .87rem; color: var(--muted); }
     .research-facts { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--line); background: var(--surface); align-self: start; }
     .fact { padding: 1.7rem; min-height: 145px; }
@@ -100,7 +105,7 @@
     .method { background: #e9ede7; border-block: 1px solid #d4ded5; }
     .method-shell { display: grid; grid-template-columns: minmax(220px, .6fr) minmax(0, 1.4fr); gap: clamp(2rem, 6vw, 6rem); align-items: start; }
     .method-intro h2 { margin-top: .8rem; }
-    .method-intro p:last-child { margin-top: 1.1rem; color: var(--ink-soft); }
+    .method-intro > p:not(.eyebrow) { margin-top: 1.1rem; color: var(--ink-soft); }
     .input-list { display: grid; gap: .45rem; margin-top: 1.5rem; }
     .input-list span { display: block; background: #fffaf1; border-left: 3px solid var(--sage); padding: .68rem .9rem; font-size: .86rem; }
     .phase-list { list-style: none; padding: 0; margin: 0; display: grid; }
@@ -143,18 +148,34 @@
     .insight .number { display: block; font: 400 1.8rem Georgia, serif; color: var(--copper); margin-bottom: .5rem; }
     .insight h3 { font-size: 1rem; }
     .insight p { color: var(--muted); font-size: .84rem; margin-top: .5rem; }
+    .rigor { background: var(--sage-light); border-block: 1px solid #ccdad0; }
+    .rigor-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.1rem; }
+    .rigor-card { background: var(--surface); border: 1px solid #ccdad0; padding: 1.5rem 1.6rem; }
+    .rigor-card .label { font-size: .7rem; letter-spacing: .13em; text-transform: uppercase; font-weight: 800; color: var(--sage); }
+    .rigor-card h3 { margin-top: .5rem; font-size: 1.05rem; }
+    .rigor-card p { margin-top: .5rem; color: var(--muted); font-size: .88rem; }
+    .rigor-card strong { color: var(--ink); }
+    .directions-layout { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(2rem, 6vw, 6rem); align-items: start; }
+    .interest-list { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.5rem; }
+    .interest-list span { background: var(--surface); border: 1px solid var(--line); padding: .45rem .75rem; font-size: .84rem; }
+    .question-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 0; counter-reset: q; }
+    .question-list li { counter-increment: q; display: grid; grid-template-columns: 3rem minmax(0, 1fr); gap: .8rem; border-top: 1px solid var(--line); padding: 1.15rem 0; }
+    .question-list li:last-child { border-bottom: 1px solid var(--line); }
+    .question-list li::before { content: counter(q, decimal-leading-zero); font: 400 1.6rem/1.1 Georgia, serif; color: var(--copper); }
+    .question-list h3 { font-size: 1.02rem; }
+    .question-list p { color: var(--muted); font-size: .86rem; margin-top: .25rem; }
     .work { background: #eceae3; border-top: 1px solid var(--line); }
     .project-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem; }
     .project { background: var(--surface); border: 1px solid var(--line); padding: 1.8rem; min-height: 315px; display: flex; flex-direction: column; }
     .project-index { display: flex; justify-content: space-between; align-items: start; color: var(--copper); font: 400 1.6rem Georgia, serif; }
-    .project-index span:last-child { color: var(--muted); font: 700 .7rem "Segoe UI", sans-serif; letter-spacing: .12em; text-transform: uppercase; }
-    .project h3 { margin-top: 1.4rem; font: 400 1.65rem/1.18 Georgia, serif; letter-spacing: -.025em; }
+    .project-index span:last-child { color: var(--muted); font: 700 .7rem "Segoe UI", sans-serif; letter-spacing: .12em; text-transform: uppercase; text-align: right; }
+    .project h3 { margin-top: 1.4rem; font: 400 1.55rem/1.18 Georgia, serif; letter-spacing: -.025em; }
     .project p { color: var(--muted); font-size: .88rem; margin-top: .85rem; }
     .project .tags { margin-top: auto; padding-top: 1.4rem; display: flex; flex-wrap: wrap; gap: .4rem; }
     .tag { border: 1px solid var(--line); color: var(--ink-soft); font-size: .71rem; padding: .26rem .5rem; line-height: 1.1; }
     .about-layout { display: grid; grid-template-columns: 1.08fr .92fr; gap: clamp(2rem, 8vw, 7rem); }
     .about-copy h2 { margin-top: .75rem; }
-    .about-copy p { max-width: 61ch; margin-top: 1.1rem; color: var(--ink-soft); }
+    .about-copy p:not(.eyebrow) { max-width: 61ch; margin-top: 1.1rem; color: var(--ink-soft); }
     .about-panels { display: grid; gap: 1.4rem; align-content: start; }
     .about-panel { border-top: 1px solid var(--line); padding-top: 1rem; }
     .about-panel h3 { font-size: .94rem; }
@@ -171,7 +192,7 @@
     .footer { background: #102127; color: #a9bdb5; padding: 1.2rem 0; }
     .footer .wrap { display: flex; justify-content: space-between; gap: 1rem; font-size: .75rem; }
     @media (max-width: 900px) {
-      .hero-grid, .research-layout, .method-shell, .result-grid, .about-layout, .contact-grid { grid-template-columns: 1fr; }
+      .hero-grid, .research-layout, .method-shell, .result-grid, .about-layout, .contact-grid, .directions-layout { grid-template-columns: 1fr; }
       .hero-aside { max-width: 35rem; }
       .extension { grid-column: 1; }
       .project-grid { grid-template-columns: repeat(2, 1fr); }
@@ -190,7 +211,6 @@
       .metric-item { padding: 1.2rem .6rem 1.2rem 0; }
       .metric-item + .metric-item { padding-left: .9rem; }
       .metric-item:nth-child(3) { padding-left: 0; }
-      .research-facts { grid-template-columns: 1fr 1fr; }
       .fact { padding: 1rem; min-height: 135px; }
       .fact strong { font-size: 2.1rem; }
       .fact strong.headway { font-size: clamp(1.4rem, 6vw, 1.85rem); }
@@ -200,12 +220,12 @@
       .bar-value { grid-column: 2; }
       .chart-axis { grid-template-columns: 1fr 3rem; gap: .5rem; }
       .axis-ticks { grid-column: 1; }
-      .insights, .project-grid { grid-template-columns: 1fr; }
-      .project { min-height: 270px; }
+      .insights, .project-grid, .rigor-grid { grid-template-columns: 1fr; }
+      .project { min-height: 0; }
       .footer .wrap { flex-direction: column; }
     }
     @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .button { transition: none; } }
-    @media print { .site-header, .hero-actions { display: none; } .hero, .contact, .result-story { print-color-adjust: exact; -webkit-print-color-adjust: exact; } .section { padding-block: 2rem; } }
+    @media print { .site-header, .hero-actions { display: none; } .hero, .contact, .result-story, .extension { print-color-adjust: exact; -webkit-print-color-adjust: exact; } .section { padding-block: 2rem; } }
   </style>
 </head>
 <body>
@@ -214,10 +234,11 @@
     <div class="wrap header-inner">
       <a class="brand" href="#top" aria-label="Amirhassan Darvishzade, home"><span class="brand-mark" aria-hidden="true">AD</span><span class="brand-text">Amirhassan Darvishzade</span></a>
       <nav class="site-nav" aria-label="Main navigation">
-        <a href="#research">Research</a>
+        <a href="#research">Thesis</a>
         <a href="#method">Method</a>
+        <a href="#results">Results</a>
+        <a href="#directions">Research directions</a>
         <a href="#projects">Projects</a>
-        <a href="#about">About</a>
         <a class="nav-contact" href="#contact">Contact ↗</a>
       </nav>
     </div>
@@ -227,17 +248,17 @@
     <section class="hero" id="top" aria-labelledby="hero-title">
       <div class="wrap hero-grid">
         <div>
-          <p class="eyebrow light">Mobility engineering · Milan, Italy</p>
+          <p class="eyebrow light">Transport equity research · Milan, Italy</p>
           <h1 id="hero-title">Equitable transit, <em>measurable</em> change.</h1>
-          <p class="hero-intro">I’m Amirhassan Darvishzade, an MSc Mobility Engineering candidate at Politecnico di Milano. I build reproducible transport analyses that connect data, equity and the operating constraints behind real service decisions.</p>
+          <p class="hero-intro">I’m Amirhassan Darvishzade, a Mobility Engineering graduate (MSc, Politecnico di Milano, 2026). My research asks how public transport service is distributed across populations with different levels of transit dependence, and how much of a modelled improvement survives the operating constraints behind real service decisions. I am seeking a doctoral position in public transport planning, accessibility and equity.</p>
           <div class="hero-actions">
-            <a class="button primary" href="#research">Explore the thesis ↘</a>
-            <a class="button secondary" href="#contact">Get in touch ↗</a>
+            <a class="button primary" href="#research">Read the thesis summary ↘</a>
+            <a class="button secondary" href="#directions">Research directions ↘</a>
           </div>
         </div>
         <aside class="hero-aside" aria-label="Research focus">
-          <span class="aside-label">Current research / 2026</span>
-          <p class="display">From a theoretical equity gain to a depot-aware target.</p>
+          <span class="aside-label">MSc thesis / 2026</span>
+          <p class="display">From a theoretical equity gain to a depot-aware bound.</p>
           <p class="aside-copy">A five-phase open-data framework reveals holiday transit disadvantage in Milan. An operator-data extension tests how much of a modelled improvement survives mode and depot constraints.</p>
           <span class="aside-index">Framework · Milan case study · operational bound</span>
         </aside>
@@ -256,13 +277,18 @@
     <section class="section" id="research" aria-labelledby="research-title">
       <div class="wrap research-layout">
         <div class="research-copy">
-          <span class="research-tag">01 / Featured research</span>
+          <span class="research-tag">01 / MSc thesis</span>
           <h2 class="research-title" id="research-title">Beyond the Weekday</h2>
           <p class="lede"><strong>An Open-Data Framework for Holiday Transit Equity, with an Application to Milan.</strong></p>
-          <p>Public transport is commonly assessed against weekday service. My thesis asks how the reduced service used on public holidays is distributed across populations with different levels of potential transit dependence, and how far a fixed quantity of <em>modelled</em> service can reduce the disparity.</p>
+          <p>Public transport is commonly assessed against weekday service. The thesis studies the reduced service run on public holidays, a period that is rarely analysed, and asks three questions:</p>
+          <ol class="rq-list">
+            <li><b>RQ1</b>How is scheduled holiday service distributed across populations with different levels of potential transit dependence?</li>
+            <li><b>RQ2</b>Where does a high holiday service burden coincide with poor walk-up access to essential services?</li>
+            <li><b>RQ3</b>How far could a fixed quantity of <em>modelled</em> service reduce the disparity, and how much of that gain survives the operator’s mode and depot structure?</li>
+          </ol>
           <p>The core framework combines Azienda Trasporti Milanesi (ATM) scheduled timetables in General Transit Feed Specification (GTFS) format, 2021 census sections from Italy’s national statistical institute (ISTAT), and OpenStreetMap essential destinations. It studies eight public holidays across four seasonal feeds. Seven enter the cross-holiday ranking; Labour Day is excluded from that ranking because the relevant feed has anomalous stop coverage.</p>
-          <p>The work develops a transferable method first and then applies it to Milan. Operator-provided metro entries and a line-to-depot register support later checks and the depot extension; they are <strong>not inputs to the open-data core</strong>.</p>
-          <div class="research-meta">MSc thesis · Politecnico di Milano · Mobility Engineering · 2026<br>Supervisor: Prof. Fabio Borghetti · Co-advisor: Alberto Bertolin</div>
+          <p>The method is built to be transferable first and then applied to Milan. Operator-provided metro entries and a line-to-depot register support later checks and the depot extension; they are <strong>not inputs to the open-data core</strong>, so the core can be rerun in any city that publishes GTFS and census data.</p>
+          <div class="research-meta">MSc thesis · Politecnico di Milano · Mobility Engineering · 2026<br>Supervisor: Prof. Fabio Borghetti · Operator co-advisor: Alberto Bertolin (ATM)</div>
         </div>
         <div class="research-facts" aria-label="Milan case study results">
           <div class="fact"><strong class="headway">10.1<span aria-hidden="true"> → </span>15.0</strong><span>median scheduled headway, weekday to holiday (minutes); Sunday is also 15.0</span></div>
@@ -278,7 +304,7 @@
         <div class="method-intro">
           <p class="eyebrow">02 / Method</p>
           <h2 id="method-title">One framework.<br>Five phases.</h2>
-          <p>The procedure distinguishes the reusable analytical steps from the local choices needed to run them in Milan. Inputs, thresholds and derived outputs are recorded with each run.</p>
+          <p>The procedure separates the reusable analytical steps from the local choices needed to run them in Milan. Inputs, thresholds and derived outputs are recorded with each run in a reproducible Python–GIS pipeline.</p>
           <div class="input-list" aria-label="Core open-data inputs">
             <span><strong>GTFS:</strong> scheduled service and calendars</span>
             <span><strong>ISTAT:</strong> small-area demographic composition</span>
@@ -286,10 +312,10 @@
           </div>
         </div>
         <ol class="phase-list">
-          <li class="phase"><span class="phase-num">01</span><div><h3>Map vulnerability</h3><p>Fit population-share indicators across 6,055 populated census sections and attach the composite to stops.</p></div></li>
+          <li class="phase"><span class="phase-num">01</span><div><h3>Map vulnerability</h3><p>Fit population-share indicators across 6,055 populated census sections: older residents (40%), foreign residents (30%) and single-person households (30%). Attach the composite index to stops.</p></div></li>
           <li class="phase"><span class="phase-num">02</span><div><h3>Measure scheduled supply</h3><p>Reconstruct day types, derive stop-level headways and calculate a vulnerability-weighted burden.</p></div></li>
           <li class="phase"><span class="phase-num">03</span><div><h3>Compare individual holidays</h3><p>Separate recurring patterns from date-specific exceptions and inspect feed-coverage anomalies.</p></div></li>
-          <li class="phase"><span class="phase-num">04</span><div><h3>Test essential access</h3><p>Cross holiday burden with category-specific walk-up access to identify double exclusion.</p></div></li>
+          <li class="phase"><span class="phase-num">04</span><div><h3>Test essential access</h3><p>Cross holiday burden with category-specific walk-up access to food retail, pharmacies and healthcare to identify double exclusion.</p></div></li>
           <li class="phase"><span class="phase-num">05</span><div><h3>Bound a reallocation</h3><p>Reassign equal modelled stop-service equivalents between donor and recipient stops; compare equity outcomes.</p></div></li>
         </ol>
         <div class="extension"><strong>Operational extension / ATM data</strong><p>Apply bus-and-tram eligibility, departure-weighted stop-to-line attribution and depot-local pools. This layer requires the operator’s registry; it tests structural compatibility, not timetable feasibility.</p></div>
@@ -331,39 +357,78 @@
       </div>
     </section>
 
-    <section class="section work" id="projects" aria-labelledby="projects-title">
+    <section class="section rigor" id="robustness" aria-labelledby="rigor-title">
       <div class="wrap">
-        <div class="section-head"><p class="eyebrow">04 / Selected technical work</p><h2 id="projects-title">Methods beyond the thesis.</h2><p>Applied coursework and project work across mobility data, network design and transport data science.</p></div>
-        <div class="project-grid">
-          <article class="project"><div class="project-index"><span>01</span><span>Mobility data</span></div><h3>Lake Garda travel flows</h3><p>Combined origin–destination tables to examine travel to and from the Lake Garda area. Compared flows by traveller group, age and mode and produced summaries for transport planning questions.</p><div class="tags"><span class="tag">OD analysis</span><span class="tag">Python</span><span class="tag">Data visualisation</span></div></article>
-          <article class="project"><div class="project-index"><span>02</span><span>Network design</span></div><h3>Bus and responsive service concepts</h3><p>Explored bus-line, headway and demand-responsive service alternatives using network-model and financial-performance measures, including fleet and service-output constraints.</p><div class="tags"><span class="tag">PTV Visum</span><span class="tag">Service design</span><span class="tag">Scenario analysis</span></div></article>
-          <article class="project"><div class="project-index"><span>03</span><span>Applied data science</span></div><h3>Transport risk and condition modelling</h3><p>Built coursework workflows for road-crash severity and wheel-condition classification, including feature preparation, baseline models and evaluation of data limitations.</p><div class="tags"><span class="tag">Python</span><span class="tag">scikit-learn</span><span class="tag">Model evaluation</span></div></article>
+        <div class="section-head"><p class="eyebrow">04 / Robustness and limits</p><h2 id="rigor-title">What the results can and cannot carry.</h2><p>Each headline figure depends on modelling choices. These are the tests run and the boundaries stated in the thesis.</p></div>
+        <div class="rigor-grid">
+          <div class="rigor-card"><span class="label">Sensitivity test</span><h3>Vulnerability weights</h3><p>The index was re-run across <strong>36 alternative weight vectors</strong>. Burden rankings stayed strongly correlated with the adopted specification (minimum Spearman <strong>ρ = 0.856</strong>), while threshold-defined target sets showed greater membership sensitivity. The rankings are stable; the exact priority list is less so.</p></div>
+          <div class="rigor-card"><span class="label">Unit of analysis</span><h3>Scheduled supply, not experience</h3><p>Burden is measured from timetabled headways at stop level. The thesis does not measure actual waiting times, ridership or achieved accessibility; mapped proximity to essential destinations is a proxy.</p></div>
+          <div class="rigor-card"><span class="label">Reallocation</span><h3>Model units, not vehicle trips</h3><p>Reallocated service is counted in stop-service equivalents within a fixed modelling budget. The depot screen tests structural compatibility; it is not a feasible timetable, vehicle schedule or crew plan.</p></div>
+          <div class="rigor-card"><span class="label">External check</span><h3>Consistency, not validation</h3><p>The metro-entry comparison (r = −0.01 across 108 stations) is used as an external consistency check on supply retention. It is not a demand model and does not validate the burden index.</p></div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="about" aria-labelledby="about-title">
+    <section class="section" id="directions" aria-labelledby="directions-title">
+      <div class="wrap directions-layout">
+        <div>
+          <p class="eyebrow">05 / Research directions</p>
+          <h2 id="directions-title">Questions I want to pursue.</h2>
+          <p style="margin-top:1.1rem;color:var(--ink-soft);max-width:52ch">The thesis ends where its data ends. Each open question below follows directly from a stated limitation, and together they form the doctoral agenda I would like to develop.</p>
+          <div class="interest-list" aria-label="Research interests">
+            <span>Public transport planning and operations</span>
+            <span>Accessibility and equity</span>
+            <span>Service design and resource allocation</span>
+            <span>Demand-responsive transport</span>
+            <span>GTFS-based network analysis</span>
+            <span>Spatial and GIS methods</span>
+            <span>Data-driven urban mobility</span>
+          </div>
+        </div>
+        <ol class="question-list">
+          <li><div><h3>Are holiday service gaps persistent?</h3><p>Extend the framework to multiple years of feeds to separate structural disadvantage from one-year timetable choices.</p></div></li>
+          <li><div><h3>What do passengers actually experience?</h3><p>Add passenger-side evidence, such as ridership, realised waiting times and travel-time accessibility, to test whether scheduled burden predicts experienced burden.</p></div></li>
+          <li><div><h3>Who exactly is affected?</h3><p>Use finer demographic data to move beyond a three-indicator relative index toward a more direct measure of transit dependence.</p></div></li>
+          <li><div><h3>Can an equity gain be scheduled?</h3><p>Move from stop-level equivalents to route-continuous scheduling with vehicles, duties and depot availability, so that an equity target becomes an operable service plan.</p></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section work" id="projects" aria-labelledby="projects-title">
+      <div class="wrap">
+        <div class="section-head"><p class="eyebrow">06 / Related work</p><h2 id="projects-title">Methods beyond the thesis.</h2><p>Coursework and team projects in network design, mobility data and transport policy. Team projects state my own contribution.</p></div>
+        <div class="project-grid">
+          <article class="project"><div class="project-index"><span>01</span><span>Network design · Team · 2025</span></div><h3>Belluno bus network redesign</h3><p>I designed eight proposed bus lines in PTV Visum under stop-spacing, cycle-time and a 20-vehicle fleet ceiling. In the group model, the estimated fleet fell from 11 to 10 and load factor rose from 23.7% to 30.4%, while mean in-vehicle time rose from 7.65 to 10.65 minutes: an operator gain paid partly in passenger time.</p><div class="tags"><span class="tag">PTV Visum</span><span class="tag">Service design</span><span class="tag">Trade-off analysis</span></div></article>
+          <article class="project"><div class="project-index"><span>02</span><span>Mobility data · Team · 2025</span></div><h3>Lake Garda travel flows</h3><p>My part was Python analysis of mobile-device origin–destination data covering about 3,000 zones, comparing weighted flows by traveller group, timing and mode. Mobile estimates correlated with official tourism indicators (r ≈ 0.90); the sources measure different things, so this is a plausibility check, not accuracy.</p><div class="tags"><span class="tag">OD analysis</span><span class="tag">Python</span><span class="tag">Data limitations</span></div></article>
+          <article class="project"><div class="project-index"><span>03</span><span>Scenario modelling · Team · 2024</span></div><h3>Lombardy decarbonisation scenarios</h3><p>We built 2035 and 2040 OD scenarios in PTV Visum under three policy and EV-adoption assumptions and calculated vehicle-km and CO<sub>2</sub> by zone pair. In the average scenario the regional index fell 24.5% by 2040 while the Milan subset rose 80.2%: an aggregate improvement can hide local deterioration.</p><div class="tags"><span class="tag">PTV Visum</span><span class="tag">Emissions</span><span class="tag">Spatial disaggregation</span></div></article>
+          <article class="project"><div class="project-index"><span>04</span><span>Transport ethics · Individual · 2025</span></div><h3>Distributive justice in German fare systems</h3><p>Applied Rawlsian distributive justice to trust-based fare systems: flat fines, random inspections and the burden placed on paying passengers. The paper separates normative argument from causal evidence and proposes proportionate penalties and fairer inspection practice.</p><div class="tags"><span class="tag">Distributive justice</span><span class="tag">Fare policy</span><span class="tag">Policy analysis</span></div></article>
+          <article class="project"><div class="project-index"><span>05</span><span>Applied data science</span></div><h3>Transport risk and condition modelling</h3><p>Built coursework workflows for road-crash severity and wheel-condition classification, including feature preparation, baseline models and evaluation of data limitations.</p><div class="tags"><span class="tag">Python</span><span class="tag">scikit-learn</span><span class="tag">Model evaluation</span></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about" aria-labelledby="about-title" style="padding-top:clamp(4.5rem, 8vw, 7.5rem)">
       <div class="wrap about-layout">
-        <div class="about-copy"><p class="eyebrow">05 / About</p><h2 id="about-title">Research discipline.<br>Engineering delivery.</h2><p>I bring an industrial engineering foundation to mobility systems analysis: defining a measurable question, building a transparent pipeline, testing the result and stating what the model cannot establish.</p><p>My current interests sit between transport equity, transit service design, reproducible geospatial analysis and the operational validation needed to turn a useful benchmark into a real proposal. I welcome conversations about doctoral research and applied transport analytics.</p></div>
+        <div class="about-copy"><p class="eyebrow">07 / About</p><h2 id="about-title">Research discipline.<br>Engineering delivery.</h2><p>I bring an industrial engineering foundation, in operations research, probability and numerical methods, to mobility systems analysis: defining a measurable question, building a transparent pipeline, testing the result and stating what the model cannot establish.</p><p>My thesis combined open data with an operator partnership, and I want doctoral work that keeps that combination: methods that transfer between cities, checked against how transit is actually run.</p></div>
         <div class="about-panels">
-          <div class="about-panel"><h3>Education & earlier work</h3><p>MSc Mobility Engineering candidate, Politecnico di Milano · expected 2026<br>BSc Industrial Engineering, University of Tehran · earlier investment-feasibility and sensitivity-analysis work</p></div>
-          <div class="about-panel"><h3>Tools used in projects</h3><div class="tool-list"><span class="tag">Python · pandas</span><span class="tag">GeoPandas · QGIS</span><span class="tag">GTFS</span><span class="tag">PTV Visum</span><span class="tag">Power BI</span><span class="tag">scikit-learn</span><span class="tag">Excel</span></div></div>
-          <div class="about-panel"><h3>Next research steps</h3><p>Multi-year holiday comparison, passenger-side evidence, finer demographic data, and route-continuous scheduling with vehicles, duties and depot availability.</p></div>
+          <div class="about-panel"><h3>Education</h3><p>MSc Mobility Engineering, Politecnico di Milano · 2023–2026<br>Coursework: Transportation Planning, Sustainable Mobility, Data Science for Mobility, Mobility Infrastructures</p><p>BSc Industrial Engineering, University of Tehran · 2018–2022<br>Coursework: Operations Research, Probability, Numerical Computation, Linear Algebra</p></div>
+          <div class="about-panel"><h3>Academic service</h3><p>Editorial quality control, Fankaav Student Journal (2021–2022): reviewed 30+ technical articles for citation accuracy, logical consistency and source support.</p></div>
+          <div class="about-panel"><h3>Tools and languages</h3><div class="tool-list"><span class="tag">Python · pandas</span><span class="tag">GeoPandas · OSMnx</span><span class="tag">QGIS</span><span class="tag">GTFS</span><span class="tag">PTV Visum</span><span class="tag">scikit-learn</span><span class="tag">Power BI</span></div><p>Persian (native) · English (C1, IELTS 7.5) · Italian (B1)</p></div>
         </div>
       </div>
     </section>
 
     <section class="section contact" id="contact" aria-labelledby="contact-title">
       <div class="wrap contact-grid">
-        <div><p class="eyebrow light">06 / Contact</p><h2 id="contact-title">Let’s make the evidence useful.</h2><p>For PhD conversations, transport analytics, or a closer discussion of the Milan case study, please get in touch.</p></div>
+        <div><p class="eyebrow light">08 / Contact</p><h2 id="contact-title">Let’s make the evidence useful.</h2><p>I welcome conversations about doctoral positions and research on public transport equity, service design and accessibility. I am happy to share the full thesis on request.</p></div>
         <div class="contact-links">
-          <!-- This is the institutional address shown in the thesis deposit declaration. -->
-          <a href="mailto:10958484@polimi.it?subject=Mobility%20research%20enquiry"><span>10958484@polimi.it</span><span aria-hidden="true">↗</span></a>
+          <a href="mailto:amirhassan.darvishzade@mail.polimi.it?subject=Doctoral%20research%20enquiry"><span>amirhassan.darvishzade@mail.polimi.it</span><span aria-hidden="true">↗</span></a>
           <a href="https://www.linkedin.com/in/amir-hassan-darvishzade/" target="_blank" rel="noopener noreferrer"><span>LinkedIn profile</span><span aria-hidden="true">↗</span></a>
+          <a href="./"><span>Applied project portfolio</span><span aria-hidden="true">↗</span></a>
         </div>
       </div>
     </section>
   </main>
-  <footer class="footer"><div class="wrap"><span>© 2026 Amirhassan Darvishzade</span><span>Mobility engineering · Milan, Italy</span></div></footer>
+  <footer class="footer"><div class="wrap"><span>© 2026 Amirhassan Darvishzade</span><span>Transport equity research · Milan, Italy</span></div></footer>
 </body>
 </html>

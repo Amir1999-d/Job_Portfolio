@@ -164,6 +164,7 @@
     .question-list li::before { content: counter(q, decimal-leading-zero); font: 400 1.6rem/1.1 Georgia, serif; color: var(--copper); }
     .question-list h3 { font-size: 1.02rem; }
     .question-list p { color: var(--muted); font-size: .86rem; margin-top: .25rem; }
+    .question-list .q-method { color: var(--sage); font-size: .7rem; letter-spacing: .1em; text-transform: uppercase; font-weight: 800; margin-top: .55rem; }
     .work { background: #eceae3; border-top: 1px solid var(--line); }
     .project-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem; }
     .project { background: var(--surface); border: 1px solid var(--line); padding: 1.8rem; min-height: 315px; display: flex; flex-direction: column; }
@@ -250,7 +251,7 @@
         <div>
           <p class="eyebrow light">Transport equity research · Milan, Italy</p>
           <h1 id="hero-title">Equitable transit, <em>measurable</em> change.</h1>
-          <p class="hero-intro">I’m Amirhassan Darvishzade, a Mobility Engineering graduate (MSc, Politecnico di Milano, 2026). My research asks how public transport service is distributed across populations with different levels of transit dependence, and how much of a modelled improvement survives the operating constraints behind real service decisions. I am seeking a doctoral position in public transport planning, accessibility and equity.</p>
+          <p class="hero-intro">I’m Amirhassan Darvishzade, a Mobility Engineering graduate (MSc, Politecnico di Milano, October 2026). My research asks how public transport service is distributed across populations with different levels of transit dependence, and how much of a modelled improvement survives the operating constraints behind real service decisions. I am seeking a PhD on equitable public transport that operators can schedule and passengers actually receive.</p>
           <div class="hero-actions">
             <a class="button primary" href="#research">Read the thesis summary ↘</a>
             <a class="button secondary" href="#directions">Research directions ↘</a>
@@ -287,7 +288,7 @@
             <li><b>RQ3</b>How far could a fixed quantity of <em>modelled</em> service reduce the disparity, and how much of that gain survives the operator’s mode and depot structure?</li>
           </ol>
           <p>The core framework combines Azienda Trasporti Milanesi (ATM) scheduled timetables in General Transit Feed Specification (GTFS) format, 2021 census sections from Italy’s national statistical institute (ISTAT), and OpenStreetMap essential destinations. It studies eight public holidays across four seasonal feeds. Seven enter the cross-holiday ranking; Labour Day is excluded from that ranking because the relevant feed has anomalous stop coverage.</p>
-          <p>The method is built to be transferable first and then applied to Milan. Operator-provided metro entries and a line-to-depot register support later checks and the depot extension; they are <strong>not inputs to the open-data core</strong>, so the core can be rerun in any city that publishes GTFS and census data.</p>
+          <p>The method is built to be transferable first and then applied to Milan. Operator-provided metro entries and a line-to-depot register support later checks and the depot extension; they are <strong>not inputs to the open-data core</strong>, so the core is designed to be rerun in other cities that publish GTFS and small-area census data. So far it has been applied only to Milan.</p>
           <div class="research-meta">MSc thesis · Politecnico di Milano · Mobility Engineering · 2026<br>Supervisor: Prof. Fabio Borghetti · Operator co-advisor: Alberto Bertolin (ATM)</div>
         </div>
         <div class="research-facts" aria-label="Milan case study results">
@@ -305,6 +306,9 @@
           <p class="eyebrow">02 / Method</p>
           <h2 id="method-title">One framework.<br>Five phases.</h2>
           <p>The procedure separates the reusable analytical steps from the local choices needed to run them in Milan. Inputs, thresholds and derived outputs are recorded with each run in a reproducible Python–GIS pipeline.</p>
+          <!-- Uncomment once the open-data core (no ATM data) is public:
+          <p><a href="https://github.com/amir1999-d/REPO-NAME">Open-data core code on GitHub ↗</a></p>
+          -->
           <div class="input-list" aria-label="Core open-data inputs">
             <span><strong>GTFS:</strong> scheduled service and calendars</span>
             <span><strong>ISTAT:</strong> small-area demographic composition</span>
@@ -350,7 +354,7 @@
           </div>
         </div>
         <div class="insights">
-          <div class="insight"><span class="number">415</span><h3>Double exclusion is concentrated</h3><p>13.0% of the analytical network meets the joint burden and access test; incidence rises from 6.8% in the least vulnerable tertile to 22.1% in the most vulnerable.</p></div>
+          <div class="insight"><span class="number">415</span><h3>Double exclusion is concentrated</h3><p>13.0% of the analytical network meets the joint burden and access test. Incidence rises from 6.8% in the least vulnerable tertile to 22.1% in the most vulnerable, but part of that gradient is built in, because burden is vulnerability-weighted.</p></div>
           <div class="insight"><span class="number">184</span><h3>A defined review set</h3><p>These double-excluded stops are also reallocation recipients. The set is a starting point for detailed service and access review, not an automatic timetable.</p></div>
           <div class="insight"><span class="number">−0.01</span><h3>A demand consistency check</h3><p>At 108 matched metro stations, the station-level correlation between scheduled-supply and entrance-count retention is effectively zero. It does not show whether supply is adequate.</p></div>
         </div>
@@ -374,7 +378,7 @@
         <div>
           <p class="eyebrow">05 / Research directions</p>
           <h2 id="directions-title">Questions I want to pursue.</h2>
-          <p style="margin-top:1.1rem;color:var(--ink-soft);max-width:52ch">The thesis ends where its data ends. Each open question below follows directly from a stated limitation, and together they form the doctoral agenda I would like to develop.</p>
+          <p style="margin-top:1.1rem;color:var(--ink-soft);max-width:52ch">The thesis ends where its data ends. Each question below starts from a stated limitation and names the method it would need. Answering them takes statistical models of observed service and travel, and mathematical programming for scheduling. Those methods go beyond my MSc, and learning them is what I want from a PhD.</p>
           <div class="interest-list" aria-label="Research interests">
             <span>Public transport planning and operations</span>
             <span>Accessibility and equity</span>
@@ -386,10 +390,10 @@
           </div>
         </div>
         <ol class="question-list">
-          <li><div><h3>Are holiday service gaps persistent?</h3><p>Extend the framework to multiple years of feeds to separate structural disadvantage from one-year timetable choices.</p></div></li>
-          <li><div><h3>What do passengers actually experience?</h3><p>Add passenger-side evidence, such as ridership, realised waiting times and travel-time accessibility, to test whether scheduled burden predicts experienced burden.</p></div></li>
-          <li><div><h3>Who exactly is affected?</h3><p>Use finer demographic data to move beyond a three-indicator relative index toward a more direct measure of transit dependence.</p></div></li>
-          <li><div><h3>Can an equity gain be scheduled?</h3><p>Move from stop-level equivalents to route-continuous scheduling with vehicles, duties and depot availability, so that an equity target becomes an operable service plan.</p></div></li>
+          <li><div><h3>Does delivered service widen the scheduled gap?</h3><p>The thesis measures the timetable only. Compare scheduled with delivered headways from automatic vehicle location or GTFS-Realtime records, and test whether reliability losses on thin-service days fall harder on transit-dependent areas.</p><p class="q-method">Data: AVL / GTFS-Realtime · Method: statistical models of headway deviation</p></div></li>
+          <li><div><h3>Can an equity gain be scheduled?</h3><p>Formulate the reallocation as an optimisation problem, with an equity objective subject to fleet, depot, route-continuity and crew constraints. Solve it at line level and compare the result with the stop-level bound reported above.</p><p class="q-method">Method: mathematical programming · Benchmark: the 20.8% → 10.2% bound</p></div></li>
+          <li><div><h3>Does scheduled burden predict who travels?</h3><p>The metro-entry comparison (r = −0.01) was only a consistency check. Link holiday burden to ridership or smart-card data to test whether thin service is associated with fewer trips from transit-dependent areas.</p><p class="q-method">Data: smart-card or ridership records · Method: demand models</p></div></li>
+          <li><div><h3>Are the gaps persistent, and for whom?</h3><p>Extend the framework to several years of feeds to separate structural disadvantage from one-year timetable choices, and replace the three-indicator relative index with a more direct measure of transit dependence.</p><p class="q-method">Data: multi-year GTFS panel · Method: index validation</p></div></li>
         </ol>
       </div>
     </section>
@@ -402,18 +406,19 @@
           <article class="project"><div class="project-index"><span>02</span><span>Mobility data · Team · 2025</span></div><h3>Lake Garda travel flows</h3><p>My part was Python analysis of mobile-device origin–destination data covering about 3,000 zones, comparing weighted flows by traveller group, timing and mode. Mobile estimates correlated with official tourism indicators (r ≈ 0.90); the sources measure different things, so this is a plausibility check, not accuracy.</p><div class="tags"><span class="tag">OD analysis</span><span class="tag">Python</span><span class="tag">Data limitations</span></div></article>
           <article class="project"><div class="project-index"><span>03</span><span>Scenario modelling · Team · 2024</span></div><h3>Lombardy decarbonisation scenarios</h3><p>We built 2035 and 2040 OD scenarios in PTV Visum under three policy and EV-adoption assumptions and calculated vehicle-km and CO<sub>2</sub> by zone pair. In the average scenario the regional index fell 24.5% by 2040 while the Milan subset rose 80.2%: an aggregate improvement can hide local deterioration.</p><div class="tags"><span class="tag">PTV Visum</span><span class="tag">Emissions</span><span class="tag">Spatial disaggregation</span></div></article>
           <article class="project"><div class="project-index"><span>04</span><span>Transport ethics · Individual · 2025</span></div><h3>Distributive justice in German fare systems</h3><p>Applied Rawlsian distributive justice to trust-based fare systems: flat fines, random inspections and the burden placed on paying passengers. The paper separates normative argument from causal evidence and proposes proportionate penalties and fairer inspection practice.</p><div class="tags"><span class="tag">Distributive justice</span><span class="tag">Fare policy</span><span class="tag">Policy analysis</span></div></article>
-          <article class="project"><div class="project-index"><span>05</span><span>Applied data science</span></div><h3>Transport risk and condition modelling</h3><p>Built coursework workflows for road-crash severity and wheel-condition classification, including feature preparation, baseline models and evaluation of data limitations.</p><div class="tags"><span class="tag">Python</span><span class="tag">scikit-learn</span><span class="tag">Model evaluation</span></div></article>
+          <article class="project"><div class="project-index"><span>05</span><span>Applied data science · Coursework</span></div><h3>Transport risk and condition modelling</h3><p>Built coursework workflows for road-crash severity and wheel-condition classification, including feature preparation, baseline models and evaluation of data limitations.</p><div class="tags"><span class="tag">Python</span><span class="tag">scikit-learn</span><span class="tag">Model evaluation</span></div></article>
         </div>
       </div>
     </section>
 
     <section class="section" id="about" aria-labelledby="about-title" style="padding-top:clamp(4.5rem, 8vw, 7.5rem)">
       <div class="wrap about-layout">
-        <div class="about-copy"><p class="eyebrow">07 / About</p><h2 id="about-title">Research discipline.<br>Engineering delivery.</h2><p>I bring an industrial engineering foundation, in operations research, probability and numerical methods, to mobility systems analysis: defining a measurable question, building a transparent pipeline, testing the result and stating what the model cannot establish.</p><p>My thesis combined open data with an operator partnership, and I want doctoral work that keeps that combination: methods that transfer between cities, checked against how transit is actually run.</p></div>
+        <div class="about-copy"><p class="eyebrow">07 / About</p><h2 id="about-title">Research discipline.<br>Engineering delivery.</h2><p>I trained first as an industrial engineer (operations research, probability, numerical methods) and then in mobility engineering. I work by defining a measurable question, building a transparent pipeline, testing the result and stating what the model cannot establish.</p><p>My thesis combined open data with ATM’s own records: metro entry counts and a line-to-depot register. I want doctoral work that keeps that combination: methods that transfer between cities, checked against how transit is actually run.</p></div>
         <div class="about-panels">
           <div class="about-panel"><h3>Education</h3><p>MSc Mobility Engineering, Politecnico di Milano · 2023–2026<br>Coursework: Transportation Planning, Sustainable Mobility, Data Science for Mobility, Mobility Infrastructures</p><p>BSc Industrial Engineering, University of Tehran · 2018–2022<br>Coursework: Operations Research, Probability, Numerical Computation, Linear Algebra</p></div>
-          <div class="about-panel"><h3>Academic service</h3><p>Editorial quality control, Fankaav Student Journal (2021–2022): reviewed 30+ technical articles for citation accuracy, logical consistency and source support.</p></div>
+          <div class="about-panel"><h3>Methods used</h3><div class="tool-list"><span class="tag">Inequality measurement (Gini)</span><span class="tag">Composite index + weight sensitivity (Spearman ρ)</span><span class="tag">GTFS headway reconstruction</span><span class="tag">Walk-access analysis (OpenStreetMap)</span><span class="tag">Constraint-based scenario reallocation</span><span class="tag">OD and scenario modelling (PTV Visum)</span><span class="tag">Supervised classification (coursework)</span></div></div>
           <div class="about-panel"><h3>Tools and languages</h3><div class="tool-list"><span class="tag">Python · pandas</span><span class="tag">GeoPandas · OSMnx</span><span class="tag">QGIS</span><span class="tag">GTFS</span><span class="tag">PTV Visum</span><span class="tag">scikit-learn</span><span class="tag">Power BI</span></div><p>Persian (native) · English (C1, IELTS 7.5) · Italian (B1)</p></div>
+          <div class="about-panel"><h3>Academic service</h3><p>Editorial quality control, Fankaav Student Journal (2021–2022): reviewed 30+ technical articles for citation accuracy, logical consistency and source support.</p></div>
         </div>
       </div>
     </section>
@@ -422,9 +427,8 @@
       <div class="wrap contact-grid">
         <div><p class="eyebrow light">08 / Contact</p><h2 id="contact-title">Let’s make the evidence useful.</h2><p>I welcome conversations about doctoral positions and research on public transport equity, service design and accessibility. I am happy to share the full thesis on request.</p></div>
         <div class="contact-links">
-          <a href="mailto:amirhassan.darvishzade@mail.polimi.it?subject=Doctoral%20research%20enquiry"><span>amirhassan.darvishzade@mail.polimi.it</span><span aria-hidden="true">↗</span></a>
+          <a href="mailto:amirhassandarvishzade@gmail.com?subject=Doctoral%20research%20enquiry"><span>amirhassandarvishzade@gmail.com</span><span aria-hidden="true">↗</span></a>
           <a href="https://www.linkedin.com/in/amir-hassan-darvishzade/" target="_blank" rel="noopener noreferrer"><span>LinkedIn profile</span><span aria-hidden="true">↗</span></a>
-          <a href="./"><span>Applied project portfolio</span><span aria-hidden="true">↗</span></a>
         </div>
       </div>
     </section>
